@@ -14,7 +14,7 @@ interface Particle {
 }
 
 interface SparkleIntroProps {
-  onComplete: () => void;
+  onComplete?: () => void;
 }
 
 export function SparkleIntro({ onComplete }: SparkleIntroProps) {
@@ -22,7 +22,7 @@ export function SparkleIntro({ onComplete }: SparkleIntroProps) {
   const [phase, setPhase] = useState<
     "arc" | "descend" | "rise" | "splash" | "complete"
   >("arc");
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
   const particlesRef = useRef<Particle[]>([]);
   const mainSparkleRef = useRef({ x: 0, y: 0 });
   const progressRef = useRef(0);
@@ -164,7 +164,7 @@ export function SparkleIntro({ onComplete }: SparkleIntroProps) {
         // Just let particles animate
         if (elapsed >= 1400) {
           setPhase("complete");
-          setTimeout(() => onComplete(), 300);
+          setTimeout(() => onComplete?.(), 300);
         }
       }
 

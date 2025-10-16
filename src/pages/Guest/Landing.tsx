@@ -35,9 +35,9 @@ export default function HomePage() {
     }, 1000);
   };
 
-  // if (showIntro) {
-  //   return <SparkleIntro onComplete={() => setShowIntro(false)} />;
-  // }
+  if (showIntro) {
+    return <SparkleIntro onComplete={() => setShowIntro(false)} />;
+  }
   return (
     <div className="min-h-screen  relative overflow-hidden ">
       <div className="absolute inset-0">
