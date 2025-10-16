@@ -57,22 +57,6 @@ export function SparkleEffect() {
           </svg>
         </div>
       ))}
-      <style jsx>{`
-        @keyframes sparkle {
-          0% {
-            opacity: 0;
-            transform: scale(0) rotate(0deg);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1) rotate(180deg);
-          }
-          100% {
-            opacity: 0;
-            transform: scale(0) rotate(360deg);
-          }
-        }
-      `}</style>
     </div>
   );
 }
