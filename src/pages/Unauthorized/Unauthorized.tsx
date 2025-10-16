@@ -10,7 +10,7 @@ export default function Unauthorized() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/public/images/samplePhoto.webp')",
+            backgroundImage: "url('/images/samplePhoto.webp')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-violet-400/50 via-slate-300/45 to-purple-400/52" />
