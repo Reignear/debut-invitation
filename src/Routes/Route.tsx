@@ -32,4 +32,8 @@ export const Route = [
     path: "/unauthorized",
     element: <Unauthorized />,
   },
+  {
+    path: "*",
+    element: <Unauthorized />,
+  },
 ];
