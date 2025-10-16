@@ -6,7 +6,7 @@ import { Treasures } from "../../data/Treasures";
 export default function EventDetails() {
   const { token } = useParams();
   return (
-    <div className="min-h-screen relative overflow-hidden pb-35 md:pb-0">
+    <div className="min-h-screen relative overflow-hidden ">
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -150,7 +150,7 @@ export default function EventDetails() {
             </div>
           </Card>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-6">
             <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-200/40 animate-fade-in-up delay-300 hover:border-violet-300/60 transition-all duration-300 shadow-lg">
               <h3 className="text-lg font-medium  text-violet-700 drop-shadow">
                 Treasures 💎
