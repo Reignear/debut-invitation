@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/debut-invitation",
+  base: process.env.VITE_BASE_URL || "/debut-invitation",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
