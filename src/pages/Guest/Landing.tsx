@@ -53,9 +53,9 @@ export default function HomePage() {
 
       <ForestAnimation />
       <SparkleEffect />
-      {/* <div className="absolute top-10 left-10 w-40 h-40 bg-violet-300/25 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-10 left-10 w-40 h-40 bg-violet-300/25 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-20 w-48 h-48 bg-lavender-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse delay-500" /> */}
+      <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse delay-500" />
 
       {/* <div className="relative z-10 flex items-center justify-center min-h-screen p-4"> */}
       <div className="relative z-10 flex items-center justify-center min-h-screen overflow-hidden p-4">

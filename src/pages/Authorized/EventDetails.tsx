@@ -6,7 +6,7 @@ import { Treasures } from "../../data/Treasures";
 export default function EventDetails() {
   const { token } = useParams();
   return (
-    <div className="min-h-screen relative overflow-hidden ">
+    <div className="min-h-screen relative overflow-hidden">
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -25,7 +25,7 @@ export default function EventDetails() {
       <div className="absolute bottom-10 left-10 w-32 h-32 bg-lavender-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
       <div className="absolute top-1/3 right-1/4 w-28 h-28 bg-purple-200/20 rounded-full blur-2xl animate-pulse delay-500" />
 
-      <div className="relative z-10 min-h-screen p-4 py-12">
+      <div className="relative z-10 min-h-screen p-6 py-12">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-flex items-center justify-center w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-violet-200/40 to-lavender-200/40 backdrop-blur-sm animate-float shadow-lg border-2 border-violet-300/50">
@@ -35,13 +35,13 @@ export default function EventDetails() {
                 <img src="/images/tangled_flower.png" alt="" />
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif mb-4 text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
+            <h1 className="text-4xl md:text-7xl font-serif mb-4 text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
               Clarissa's Debut
             </h1>
             <div className="w-96 h-0.5 bg-gradient-to-r from-transparent via-violet-400/70 to-transparent mx-auto mt-6" />
           </div>
 
-          <Card className="p-8 md:p-12 mb-8 backdrop-blur-sm bg-gradient-to-br from-violet-100/35 via-lavender-50/30 to-purple-100/35 border-2 border-violet-200/50 shadow-2xl shadow-violet-300/30 animate-fade-in-up delay-200">
+          <Card className="p-6 md:p-12 mb-8 backdrop-blur-sm bg-gradient-to-br from-violet-100/35 via-lavender-50/30 to-purple-100/35 border-2 border-violet-200/50 shadow-2xl shadow-violet-300/30 animate-fade-in-up delay-200">
             <div className="space-y-8">
               <div className="text-center space-y-6">
                 <div>
@@ -72,7 +72,7 @@ export default function EventDetails() {
                         Venue
                       </h3>
                       <p className="text-lg font-medium text-violet-900 drop-shadow">
-                        Manet Inland Resort
+                        E&M Resort
                       </p>
                       <p className="text-base text-violet-800/90 drop-shadow">
                         <Link
@@ -138,15 +138,6 @@ export default function EventDetails() {
                   </div>
                 </div>
               </div>
-
-              {/* <div className="text-center pt-4">
-                <p className="text-sm text-violet-800/90 mb-4 drop-shadow">
-                  Please confirm your attendance by March 1, 2025
-                </p>
-                <Button className="bg-gradient-to-r from-violet-400/80 via-lavender-400/75 to-purple-400/80 hover:from-violet-500/90 hover:via-lavender-500/85 hover:to-purple-500/90 backdrop-blur-sm text-white px-8 transition-all duration-300 hover:scale-105 shadow-xl border-2 border-violet-300/50">
-                  RSVP Now
-                </Button>
-              </div> */}
             </div>
           </Card>
 
@@ -162,13 +153,28 @@ export default function EventDetails() {
                 ahead. 💖
               </p>
               <ul className="grid grid-cols-2  gap-x-4 gap-y-1">
-                {Treasures.map((treasure) => (
-                  <li key={treasure.id} className="text-violet-800/95 text-sm">
-                    {treasure.id}. {treasure.name}
-                  </li>
-                ))}
+                <div>
+                  {Treasures.slice(0, 9).map((treasure) => (
+                    <li
+                      key={treasure.id}
+                      className="text-violet-800/95 text-xs"
+                    >
+                      {treasure.id}. {treasure.name}
+                    </li>
+                  ))}
+                </div>
+                <div>
+                  {Treasures.slice(9, 18).map((treasure) => (
+                    <li
+                      key={treasure.id}
+                      className="text-violet-800/95 text-xs"
+                    >
+                      {treasure.id}. {treasure.name}
+                    </li>
+                  ))}
+                </div>
               </ul>
-              <p className="text-sm text-violet-800/90 drop-shadow text-center md:text-sm text-[12px]">
+              <p className="text-xs text-violet-800/90 drop-shadow text-center  ">
                 <Link
                   to={`/authorized/${token}/gift-ideas`}
                   className="  hover:text-violet-600 transition underline underline-offset-4"
@@ -188,11 +194,20 @@ export default function EventDetails() {
                 create. ✨
               </p>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
-                {Bills.map((bill) => (
-                  <li key={bill.id} className="text-violet-800/95 text-sm">
-                    {bill.id}. {bill.name}
-                  </li>
-                ))}
+                <div>
+                  {Bills.slice(0, 9).map((bill) => (
+                    <li key={bill.id} className="text-violet-800/95 text-xs">
+                      {bill.id}. {bill.name}
+                    </li>
+                  ))}
+                </div>
+                <div>
+                  {Bills.slice(9, 18).map((bill) => (
+                    <li key={bill.id} className="text-violet-800/95 text-xs">
+                      {bill.id}. {bill.name}
+                    </li>
+                  ))}
+                </div>
               </ul>
             </Card>
           </div>
