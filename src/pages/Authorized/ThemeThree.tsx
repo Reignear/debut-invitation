@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ThemeThree = () => {
   return (
     <div>ThemeThree</div>

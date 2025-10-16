@@ -222,24 +222,6 @@ export function ForestAnimation() {
       ctx.fill();
 
       ctx.strokeStyle = "rgba(167, 139, 250, 0.4)";
-      // ctx.lineWidth = 1;
-      // ctx.beginPath();
-      // ctx.moveTo(0, -size / 2);
-      // ctx.lineTo(0, size / 2);
-      // ctx.stroke();
-
-      // // Side veins
-      // ctx.beginPath();
-      // ctx.moveTo(0, -size / 4);
-      // ctx.lineTo(size / 4, 0);
-      // ctx.moveTo(0, -size / 4);
-      // ctx.lineTo(-size / 4, 0);
-      // ctx.moveTo(0, size / 4);
-      // ctx.lineTo(size / 4, size / 3);
-      // ctx.moveTo(0, size / 4);
-      // ctx.lineTo(-size / 4, size / 3);
-      // ctx.stroke();
-
       ctx.restore();
     };
 

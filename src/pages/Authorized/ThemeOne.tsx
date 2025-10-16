@@ -1,9 +1,6 @@
-import React from 'react'
 
 const ThemeOne = () => {
-  return (
-    <div>ThemeOne</div>
-  )
-}
+  return <div>ThemeOne</div>;
+};
 
-export default ThemeOne
+export default ThemeOne;

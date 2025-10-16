@@ -57,7 +57,7 @@ export function SparkleEffect() {
           </svg>
         </div>
       ))}
-      {/* <style jsx>{`
+      <style jsx>{`
         @keyframes sparkle {
           0% {
             opacity: 0;
@@ -72,7 +72,7 @@ export function SparkleEffect() {
             transform: scale(0) rotate(360deg);
           }
         }
-      `}</style> */}
+      `}</style>
     </div>
   );
 }
