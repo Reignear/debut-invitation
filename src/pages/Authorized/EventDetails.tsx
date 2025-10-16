@@ -11,7 +11,7 @@ export default function EventDetails() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('public/images/samplePhoto.webp')",
+            backgroundImage: "url('/images/samplePhoto.webp')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-violet-300/45 via-lavender-200/40 to-purple-300/45" />
@@ -32,7 +32,7 @@ export default function EventDetails() {
               <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 rounded-full blur-lg opacity-30 animate-pulse" />
               <div className="absolute -inset-2 bg-gradient-to-r  from-violet-400 via-purple-400 to-fuchsia-400 rounded-full opacity-50 animate-pulse " />
               <div className="relative     max-h-80 w-full overflow-hidden image-container perspective-100">
-                <img src="public/images/tangled_flower.png" alt="" />
+                <img src="/images/tangled_flower.png" alt="" />
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl font-serif mb-4 text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
@@ -163,10 +163,7 @@ export default function EventDetails() {
               </p>
               <ul className="grid grid-cols-2  gap-x-4 gap-y-1">
                 {Treasures.map((treasure) => (
-                  <li
-                    key={treasure.id}
-                    className="text-violet-800/95 text-[12px] md:text-sm"
-                  >
+                  <li key={treasure.id} className="text-violet-800/95 text-sm">
                     {treasure.id}. {treasure.name}
                   </li>
                 ))}
@@ -192,10 +189,7 @@ export default function EventDetails() {
               </p>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
                 {Bills.map((bill) => (
-                  <li
-                    key={bill.id}
-                    className="text-violet-800/95 text-[12px] md:text-sm"
-                  >
+                  <li key={bill.id} className="text-violet-800/95 text-sm">
                     {bill.id}. {bill.name}
                   </li>
                 ))}

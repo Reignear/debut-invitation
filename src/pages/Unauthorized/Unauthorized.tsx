@@ -2,6 +2,7 @@ import { ForestAnimation } from "@/animation/forestAnimation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import BackgroundImage from "/images/samplePhoto.webp";
 
 export default function Unauthorized() {
   return (
@@ -10,7 +11,7 @@ export default function Unauthorized() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/samplePhoto.webp')",
+            backgroundImage: `url(${BackgroundImage})`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-violet-400/50 via-slate-300/45 to-purple-400/52" />

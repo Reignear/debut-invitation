@@ -4,7 +4,7 @@ export const Treasures = [
   { id: 3, name: "Kyla Garcia" },
   { id: 4, name: "Ezra Angela Magallanes" },
   { id: 5, name: "Blessy Xyra Magallanes" },
-  { id: 6, name: "Ninya Aljaconirah Magallanes" },
+  { id: 6, name: "Ninya  Magallanes" },
   { id: 7, name: "Krysta Magallanes" },
   { id: 8, name: "Princess Jae Berador" },
   { id: 9, name: "Ayazel Dologmanding" },

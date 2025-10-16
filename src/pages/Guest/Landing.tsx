@@ -43,7 +43,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('public/images/samplePhoto.webp')",
+            backgroundImage: "url('/images/samplePhoto.webp')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-violet-300/40 via-lavender-200/35 to-purple-300/40" />
@@ -65,7 +65,7 @@ export default function HomePage() {
               <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 rounded-full blur-lg opacity-30 animate-pulse" />
               <div className="absolute -inset-2 bg-gradient-to-r  from-violet-400 via-purple-400 to-fuchsia-400 rounded-full opacity-50 animate-pulse " />
               <div className="relative max-h-80 w-full overflow-hidden image-container perspective-100">
-                <img src="public/images/tangled_flower.png" alt="" />
+                <img src="/images/tangled_flower.png" alt="" />
               </div>
             </div>
 
