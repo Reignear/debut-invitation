@@ -214,7 +214,7 @@ export default function PhotoCollage() {
 
   return (
     <div ref={containerRef} className="min-h-[500vh] bg-black  pt-1 pb-1">
-      <section className="relative min-h-[175vh] sm:min-h-[175vh] md:min-h-[180vh] lg:min-h-[215vh] flex items-center justify-center py-24 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[170vh] sm:min-h-[175vh] md:min-h-[180vh] lg:min-h-[215vh] flex items-center justify-center py-15 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -256,7 +256,7 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative min-h-[175vh] sm:min-h-[175vh] md:min-h-[180vh] lg:min-h-[215vh] flex items-center justify-center py-24 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[170vh] sm:min-h-[175vh] md:min-h-[180vh] lg:min-h-[215vh] flex items-center justify-center py-15 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -302,7 +302,7 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative min-h-[175vh] sm:min-h-[175vh] md:min-h-[180vh] lg:min-h-[215vh] flex items-center justify-center py-24 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[170vh] sm:min-h-[175vh] md:min-h-[180vh] lg:min-h-[215vh] flex items-center justify-center py-15 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
