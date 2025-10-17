@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -15,6 +15,7 @@ export default function HomePage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [fadeIn, setFadeIn] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -34,11 +35,31 @@ export default function HomePage() {
     }, 1000);
   };
 
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+    // Start fade-in animation after intro completes
+    setTimeout(() => {
+      setFadeIn(true);
+    }, 100);
+  };
+
+  useEffect(() => {
+    if (!showIntro && !fadeIn) {
+      const timer = setTimeout(() => setFadeIn(true), 50);
+      return () => clearTimeout(timer);
+    }
+  }, [showIntro, fadeIn]);
+
   if (showIntro) {
-    return <SparkleIntro onComplete={() => setShowIntro(false)} />;
+    return <SparkleIntro onComplete={handleIntroComplete} />;
   }
+
   return (
-    <div className="min-h-screen  relative overflow-hidden ">
+    <div
+      className={`min-h-screen relative overflow-hidden transition-opacity duration-1000 ease-in-out ${
+        fadeIn ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -57,7 +78,6 @@ export default function HomePage() {
       <div className="absolute bottom-20 right-20 w-48 h-48 bg-lavender-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
       <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse delay-500" />
 
-      {/* <div className="relative z-10 flex items-center justify-center min-h-screen p-4"> */}
       <div className="relative z-10 flex items-center justify-center min-h-screen overflow-hidden p-4">
         <Card className="w-full md:max-w-md  p-8 md:p-12 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-200/50 shadow-2xl shadow-violet-300/30 animate-fade-in">
           <div className="text-center md:mb-8 mb-2">

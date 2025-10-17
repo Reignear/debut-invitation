@@ -4,16 +4,11 @@ import Landing from "../pages/Guest/Landing";
 import AuthorizedLayout from "@/layout/AuthorizedLayout";
 import GiftIdeas from "@/pages/Authorized/GiftIdeas";
 import Unauthorized from "@/pages/Unauthorized/Unauthorized";
-import PhotoCollage from "@/pages/Authorized/PhotoCollage";
 
 export const Route = [
   {
     path: "/",
     element: <Landing />,
-  },
-  {
-    path: "/collage",
-    element: <PhotoCollage />,
   },
   {
     path: "/authorized/:token",
