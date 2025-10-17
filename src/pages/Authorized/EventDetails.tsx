@@ -85,7 +85,7 @@ export default function EventDetails() {
         {/* Bottom scroll indicator */}
         {isAtBottom && (
           <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-            <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse ">
+            <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
               Transitioning to event details...
             </div>
           </div>
