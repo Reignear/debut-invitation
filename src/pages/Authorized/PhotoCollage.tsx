@@ -217,7 +217,7 @@ export default function PhotoCollage() {
 
   return (
     <div ref={containerRef} className="min-h-[400vh] bg-black  pt-1 pb-1">
-      <section className="relative min-h-[160dvh] xxs:min-h-[150dvh] xs:min-h-[135dvh] sm:min-h-[150dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  mt-3 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[160dvh] xxs:min-h-[150dvh] xs:min-h-[135dvh] sm:min-h-[150dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -259,7 +259,7 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative min-h-[160dvh] xxs:min-h-[145dvh] xs:min-h-[130dvh] sm:min-h-[145dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  mt-3 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[160dvh] xxs:min-h-[150dvh] xs:min-h-[135dvh] sm:min-h-[150dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  my-3 md:my-15 overflow-hidden">
         {" "}
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -305,8 +305,7 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative min-h-[160dvh] xxs:min-h-[145dvh] xs:min-h-[130dvh] sm:min-h-[145dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  mt-3 md:mt-10 overflow-hidden">
-        {" "}
+      <section className="relative min-h-[160dvh] xxs:min-h-[150dvh] xs:min-h-[135dvh] sm:min-h-[150dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  my-3 md:my-15 overflow-hidden ">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
