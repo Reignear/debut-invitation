@@ -172,13 +172,14 @@ export default function PhotoCollage() {
   useEffect(() => {
     const updateScreenSize = () => {
       const width = window.innerWidth;
+
       if (width >= 1024) {
         setScreenSize("lg");
       } else if (width >= 768) {
         setScreenSize("md");
       } else if (width >= 640) {
         setScreenSize("sm");
-      } else if (width >= 412) {
+      } else if (width > 412) {
         setScreenSize("xs");
       } else {
         setScreenSize("default");
@@ -216,7 +217,7 @@ export default function PhotoCollage() {
 
   return (
     <div ref={containerRef} className="min-h-[400vh] bg-black  pt-1 pb-1">
-      <section className="relative  min-h-[130dvh] sm:min-h-[175dvh] md:min-h-[180dvh] lg:min-h-[215dvh] flex items-center justify-center py-15 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[160dvh] xxs:min-h-[145dvh] xs:min-h-[130dvh] sm:min-h-[145dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  mt-3 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -258,7 +259,8 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative  min-h-[130dvh] sm:min-h-[175dvh] md:min-h-[180dvh] lg:min-h-[215dvh] flex items-center justify-center py-15 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[160dvh] xxs:min-h-[145dvh] xs:min-h-[130dvh] sm:min-h-[145dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  mt-3 md:mt-10 overflow-hidden">
+        {" "}
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -296,7 +298,6 @@ export default function PhotoCollage() {
             </div>
           </div>
         </div>
-
         <div className="relative z-10 text-center px-4 pointer-events-none">
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white drop-shadow-2xl text-balance">
             Urban Landscapes
@@ -304,7 +305,8 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative  min-h-[130dvh] sm:min-h-[175dvh] md:min-h-[180dvh] lg:min-h-[215dvh] flex items-center justify-center py-15 px-4 mb-8 md:px-8  md:mb-10 mt-4 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[160dvh] xxs:min-h-[145dvh] xs:min-h-[130dvh] sm:min-h-[145dvh] md:min-h-[160dvh] lg:min-h-[180dvh] xl:min-h-[185dvh] 2xl:min-h-[200dvh] flex items-center justify-center  mt-3 md:mt-10 overflow-hidden">
+        {" "}
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
