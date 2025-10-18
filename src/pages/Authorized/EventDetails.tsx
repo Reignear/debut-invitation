@@ -43,7 +43,7 @@ export default function EventDetails() {
       const { scrollTop, scrollHeight, clientHeight } =
         document.documentElement;
       const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
-      const atBottom = scrollPercentage >= 0.95; // Consider 95% as "bottom"
+      const atBottom = scrollPercentage >= 0.95;
 
       setIsAtBottom(atBottom);
 
@@ -85,7 +85,7 @@ export default function EventDetails() {
         {/* Bottom scroll indicator */}
         {isAtBottom && (
           <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-            <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
+            <div className="bg-violet-600/90 w-3xs text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
               Transitioning to event details...
             </div>
           </div>
@@ -127,21 +127,21 @@ export default function EventDetails() {
                 : "translate-y-8 opacity-0"
             }`}
           >
-            <div className="inline-flex items-center justify-center w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-violet-200/40 to-lavender-200/40 backdrop-blur-sm animate-float shadow-lg border-2 border-violet-300/50">
+            <div className="inline-flex items-center justify-center w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-violet-200/40 to-lavender-200/40 backdrop-blur-sm animate-float border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] ">
               <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 rounded-full blur-lg opacity-30 animate-pulse" />
               <div className="absolute -inset-2 bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 rounded-full opacity-50 animate-pulse" />
               <div className="relative max-h-80 w-full overflow-hidden image-container perspective-100">
                 <img src="/images/tangled_flower.png" alt="" />
               </div>
             </div>
-            <h1 className="text-4xl md:text-7xl font-serif mb-4 text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
+            <h1 className="euphoria-script-regular text-[60px] md:text-[140px] text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
               Clarissa's Debut
             </h1>
             <div className="w-96 h-0.5 bg-gradient-to-r from-transparent via-violet-400/70 to-transparent mx-auto mt-6" />
           </div>
 
           <Card
-            className={`p-6 md:p-12 mb-8 backdrop-blur-sm bg-gradient-to-br from-violet-100/35 via-lavender-50/30 to-purple-100/35 border-2 border-violet-200/50 shadow-2xl shadow-violet-300/30 transition-all duration-1000 ease-out delay-500 ${
+            className={`p-6 md:p-12 mb-8 backdrop-blur-sm bg-gradient-to-br from-violet-100/35 via-lavender-50/30 to-purple-100/35  transition-all duration-1000 ease-out delay-500 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]  ${
               isEventDetailsVisible
                 ? "animate-fade-in-up translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -218,26 +218,26 @@ export default function EventDetails() {
                 <div className="grid md:grid-cols-3 gap-4 text-center">
                   <div>
                     <p className="text-sm text-violet-700/90 drop-shadow">
-                      6:00 PM
+                      4:00 PM - 5:00 PM
                     </p>
                     <p className="font-medium text-violet-900 drop-shadow">
-                      Cocktail Reception
+                      Arrival of Friends & Visitors
                     </p>
                   </div>
                   <div>
                     <p className="text-sm text-violet-700/90 drop-shadow">
-                      7:00 PM
+                      6:00 PM - 7:00 PM
                     </p>
                     <p className="font-medium text-violet-900 drop-shadow">
-                      Grand Entrance
+                      Program
                     </p>
                   </div>
                   <div>
                     <p className="text-sm text-violet-700/90 drop-shadow">
-                      8:00 PM
+                      7:00 PM - 8:00 PM
                     </p>
                     <p className="font-medium text-violet-900 drop-shadow">
-                      Dinner & Dancing
+                      Dinner
                     </p>
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export default function EventDetails() {
                 : "translate-y-8 opacity-0"
             }`}
           >
-            <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-200/40 hover:border-violet-300/60 transition-all duration-300 shadow-lg">
+            <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]   transition-all duration-300 ">
               <h3 className="text-lg font-medium text-violet-700 drop-shadow">
                 Treasures 💎
               </h3>
@@ -267,7 +267,7 @@ export default function EventDetails() {
                   {Treasures.slice(0, 9).map((treasure) => (
                     <li
                       key={treasure.id}
-                      className="text-violet-800/95 text-xs"
+                      className="text-violet-800/95 text-[11px] md:text-sm"
                     >
                       {treasure.id}. {treasure.name}
                     </li>
@@ -277,23 +277,15 @@ export default function EventDetails() {
                   {Treasures.slice(9, 18).map((treasure) => (
                     <li
                       key={treasure.id}
-                      className="text-violet-800/95 text-xs"
+                      className="text-violet-800/95 text-[11px] md:text-sm"
                     >
                       {treasure.id}. {treasure.name}
                     </li>
                   ))}
                 </div>
               </ul>
-              <p className="text-xs text-violet-800/90 drop-shadow text-center">
-                <Link
-                  to={`/authorized/${token}/gift-ideas`}
-                  className="hover:text-violet-600 transition underline underline-offset-4"
-                >
-                  Click here to view Gift Ideas
-                </Link>
-              </p>
             </Card>
-            <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-200/40 hover:border-violet-300/60 transition-all duration-300 shadow-lg">
+            <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] transition-all duration-300  ">
               <h3 className="text-lg font-medium text-violet-700 drop-shadow">
                 Yellow Bills 💛
               </h3>
@@ -306,14 +298,20 @@ export default function EventDetails() {
               <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
                 <div>
                   {Bills.slice(0, 9).map((bill) => (
-                    <li key={bill.id} className="text-violet-800/95 text-xs">
+                    <li
+                      key={bill.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
                       {bill.id}. {bill.name}
                     </li>
                   ))}
                 </div>
                 <div>
                   {Bills.slice(9, 18).map((bill) => (
-                    <li key={bill.id} className="text-violet-800/95 text-xs">
+                    <li
+                      key={bill.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
                       {bill.id}. {bill.name}
                     </li>
                   ))}

@@ -24,7 +24,7 @@ export default function HomePage() {
     setIsLoading(true);
 
     setTimeout(() => {
-      const validCodes = ["DEBUT2025", "EIGHTEEN", "FOREST"];
+      const validCodes = ["CLARISSA", "CLANG"];
       const token = crypto.randomUUID();
       if (validCodes.includes(code.toUpperCase())) {
         navigate(`/authorized/${token}`);
@@ -37,7 +37,6 @@ export default function HomePage() {
 
   const handleIntroComplete = () => {
     setShowIntro(false);
-    // Start fade-in animation after intro completes
     setTimeout(() => {
       setFadeIn(true);
     }, 100);
@@ -79,7 +78,7 @@ export default function HomePage() {
       <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse delay-500" />
 
       <div className="relative z-10 flex items-center justify-center min-h-screen overflow-hidden p-4">
-        <Card className="w-full md:max-w-md  p-8 md:p-12 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-200/50 shadow-2xl shadow-violet-300/30 animate-fade-in">
+        <Card className="relative w-full md:max-w-md border-none p-8 md:p-12 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30     animate-fade-in border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
           <div className="text-center md:mb-8 mb-2">
             <div className="inline-flex items-center justify-center w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-violet-200/40 to-lavender-200/40 backdrop-blur-sm animate-float shadow-lg border-2 border-violet-300/50">
               <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 rounded-full blur-lg opacity-30 animate-pulse" />
@@ -89,7 +88,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-serif mb-3 text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
+            <h1 className="euphoria-script-regular text-[60px] md:text-[70px]   mb-3 text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
               You're Invited
             </h1>
             <p className="text-lg text-violet-800/90 mb-2 animate-fade-in-up delay-100 drop-shadow-md">
