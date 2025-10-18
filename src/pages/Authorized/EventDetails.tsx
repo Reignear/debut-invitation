@@ -242,6 +242,11 @@ export default function EventDetails() {
                   </div>
                 </div>
               </div>
+              <div className="text-center text-base text-violet-800/90  underline underline-offset-4">
+                <Link to={`/authorized/${token}/about-clarissa`}>
+                  Get to know Clarissa
+                </Link>
+              </div>
             </div>
           </Card>
 

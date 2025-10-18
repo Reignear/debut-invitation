@@ -2,7 +2,7 @@ import EventDetails from "@/pages/Authorized/EventDetails";
 import GoogleMap from "@/pages/Authorized/GoogleMap";
 import Landing from "../pages/Guest/Landing";
 import AuthorizedLayout from "@/layout/AuthorizedLayout";
-import GiftIdeas from "@/pages/Authorized/GiftIdeas";
+import AboutClarissa from "@/pages/Authorized/AboutClarissa";
 import Unauthorized from "@/pages/Unauthorized/Unauthorized";
 
 export const Route = [
@@ -23,8 +23,8 @@ export const Route = [
         element: <GoogleMap />,
       },
       {
-        path: "gift-ideas",
-        element: <GiftIdeas />,
+        path: "about-clarissa",
+        element: <AboutClarissa />,
       },
     ],
   },

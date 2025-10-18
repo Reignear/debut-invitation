@@ -73,9 +73,6 @@ export default function HomePage() {
 
       <ForestAnimation />
       <SparkleEffect />
-      <div className="absolute top-10 left-10 w-40 h-40 bg-violet-300/25 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-20 w-48 h-48 bg-lavender-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse delay-500" />
 
       <div className="relative z-10 flex items-center justify-center min-h-screen overflow-hidden p-4">
         <Card className="relative w-full md:max-w-md border-none p-8 md:p-12 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30     animate-fade-in border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">

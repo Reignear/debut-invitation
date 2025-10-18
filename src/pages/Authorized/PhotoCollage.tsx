@@ -217,7 +217,7 @@ export default function PhotoCollage() {
 
   return (
     <div ref={containerRef} className="min-h-[400vh] bg-black  pt-1 pb-1">
-      <section className="relative min-h-[160dvh] max-h-[190dvh] xxs:min-h-[150dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[175dvh] max-h-[190dvh] xxs:min-h-[155dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -253,13 +253,13 @@ export default function PhotoCollage() {
           className="relative z-10 text-center px-4 animate-fade-in pointer-events-none"
           style={{ animationDelay: "1s" }}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white drop-shadow-2xl mb-4 text-balance">
+          <h1 className="euphoria-script-regular text-[90px] md:text-[120px] lg:text-[150px] font-bold text-white drop-shadow-2xl mb-4 text-balance">
             Nature's Beauty
           </h1>
         </div>
       </section>
 
-      <section className="relative min-h-[160dvh] max-h-[190dvh] xxs:min-h-[150dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[175dvh] max-h-[190dvh] xxs:min-h-[155dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -298,13 +298,13 @@ export default function PhotoCollage() {
           </div>
         </div>
         <div className="relative z-10 text-center px-4 pointer-events-none">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white drop-shadow-2xl text-balance">
+          <h2 className="euphoria-script-regular text-[90px] md:text-[120px] lg:text-[150px] font-bold text-white drop-shadow-2xl text-balance">
             Urban Landscapes
           </h2>
         </div>
       </section>
 
-      <section className="relative min-h-[160dvh] max-h-[190dvh] xxs:min-h-[150dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[175dvh] max-h-[190dvh] xxs:min-h-[155dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
@@ -342,7 +342,7 @@ export default function PhotoCollage() {
           </div>
         </div>
         <div className="relative z-10 text-center px-4 pointer-events-none">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white drop-shadow-2xl text-balance">
+          <h2 className="euphoria-script-regular text-[90px] md:text-[120px] lg:text-[150px] font-bold text-white drop-shadow-2xl text-balance">
             Abstract Art
           </h2>
         </div>
