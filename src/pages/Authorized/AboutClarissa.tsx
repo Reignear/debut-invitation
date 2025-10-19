@@ -1,353 +1,86 @@
 import { ForestAnimation } from "@/animation/forestAnimation";
+import { ChildhoodPhotos } from "@/data/ChildhoodPhotos";
+import { useEffect, useState } from "react";
 
-const AboutClarissa = () => {
+export default function AboutClarissa() {
+  const [screenSize, setScreenSize] = useState<
+    "xs" | "sm" | "md" | "lg" | "default"
+  >("default");
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1024) {
+        setScreenSize("lg");
+      } else if (width >= 768) {
+        setScreenSize("md");
+      } else if (width >= 640) {
+        setScreenSize("sm");
+      } else if (width > 412) {
+        setScreenSize("xs");
+      } else {
+        setScreenSize("default");
+      }
+    };
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
+
+  const getSpan = (
+    spanConfig:
+      | number
+      | { default: number; md?: number; lg?: number; sm?: number; xs?: number }
+  ) => {
+    if (typeof spanConfig === "number") return spanConfig;
+
+    if (screenSize === "lg" && spanConfig.lg) return spanConfig.lg;
+    if (screenSize === "md" && spanConfig.md) return spanConfig.md;
+    if (screenSize === "sm" && spanConfig.sm) return spanConfig.sm;
+    if (screenSize === "xs" && spanConfig.xs) return spanConfig.xs;
+    return spanConfig.default;
+  };
+
+  const getColSpanClass = (span: number) => {
+    const spanMap: Record<number, string> = {
+      1: "col-span-1",
+      2: "col-span-2",
+      3: "col-span-3",
+      4: "col-span-4",
+      5: "col-span-5",
+    };
+    return spanMap[span] || "col-span-1";
+  };
+
   return (
-    <div className="relative min-h-screen flex  overflow-hidden   pb-10 px-5 md:px-10">
+    <div className="relative z-5 min-h-[400dvh] flex bg-black overflow-hidden  p-4  md:p-10  ">
       <ForestAnimation />
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-300/40 via-lavender-200/35 to-purple-300/40" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-pink-200/20 via-transparent to-violet-200/25" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(233,213,255,0.15),transparent_10%)]" />
-      <div className="z-10  w-full">
-        <h1 className="euphoria-script-regular text-center text-[60px] md:text-[140px] text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
-          All about Clarissa
-        </h1>
-        <div>
-          <div className="grid grid-cols-2 gap-5 w-full h-full">
-            <div className=" min-h-[70dvh]">
-              <div className=" h-full grid grid-cols-4 gap-4 p-4 auto-rows-[150px]">
-                <div className="col-span-2 border rounded-lg ">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border  rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 borde rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
+      <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
+        {ChildhoodPhotos.map((photo, index) => {
+          const currentSpan = getSpan(photo.span);
+          return (
+            <div
+              key={photo.id}
+              className={`relative rounded-lg group animate-fade-in ${getColSpanClass(
+                currentSpan
+              )}`}
+              style={{
+                animationDelay: `${index * 150}ms`,
+                animationFillMode: "both",
+              }}
+            >
+              <img
+                src={photo.src || "/placeholder.svg"}
+                alt={`Nature ${photo.id}`}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 rounded-lg"
+                loading={index < 4 ? "eager" : "lazy"}
+              />
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <div className="  p-4 min-h-[70dvh]">
-              <h1 className="euphoria-script-regular  text-[60px] md:text-[50px] text-start text-violet-700/90 animate-fade-in-up drop-shadow-lg">
-                Childhood beginnings
-              </h1>
-              <p className="text-justify text-violet-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-5 w-full h-full">
-            <div className="  p-4 min-h-[70dvh]">
-              <h1 className="euphoria-script-regular  text-[60px] md:text-[50px] text-start text-violet-700/90 animate-fade-in-up drop-shadow-lg">
-                Education Journey
-              </h1>
-              <p className="text-justify text-violet-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-            <div className=" min-h-[70dvh]">
-              <div className=" h-full grid grid-cols-4 gap-4 p-4 auto-rows-[150px]">
-                <div className="col-span-2 border rounded-lg ">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border  rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 borde rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-5 w-full h-full">
-            <div className=" min-h-[70dvh]">
-              <div className=" h-full grid grid-cols-4 gap-4 p-4 auto-rows-[150px]">
-                <div className="col-span-2 border rounded-lg ">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border  rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 borde rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="  p-4 min-h-[70dvh]">
-              <h1 className="euphoria-script-regular  text-[60px] md:text-[50px] text-start text-violet-700/90 animate-fade-in-up drop-shadow-lg">
-                Character Identity
-              </h1>
-              <p className="text-justify text-violet-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-5 w-full h-full">
-            <div className="  p-4 min-h-[70dvh]">
-              <h1 className="euphoria-script-regular  text-[60px] md:text-[50px] text-start text-violet-700/90 animate-fade-in-up drop-shadow-lg">
-                New beginnings
-              </h1>
-              <p className="text-justify text-violet-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-            <div className=" min-h-[70dvh]">
-              <div className=" h-full grid grid-cols-4 gap-4 p-4 auto-rows-[150px]">
-                <div className="col-span-2 border rounded-lg ">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border  rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 borde rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-1 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-                <div className="col-span-2 border rounded-lg">
-                  <img
-                    src="/clarissa/pic2.jpg"
-                    alt=""
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );
-};
-
-export default AboutClarissa;
+}
