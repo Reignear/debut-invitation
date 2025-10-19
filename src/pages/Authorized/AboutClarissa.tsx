@@ -53,18 +53,31 @@ export default function AboutClarissa() {
     return spanMap[span] || "col-span-1";
   };
 
+  const getRowSpanClass = (span: number) => {
+    const spanMap: Record<number, string> = {
+      1: "row-span-1",
+      2: "row-span-2",
+      3: "row-span-3",
+      4: "row-span-4",
+      5: "row-span-5",
+      6: "row-span-6",
+    };
+    return spanMap[span] || "row-span-1";
+  };
+
   return (
     <div className="relative z-5 min-h-[400dvh] flex bg-black overflow-hidden  p-4  md:p-10  ">
       <ForestAnimation />
       <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
         {ChildhoodPhotos.map((photo, index) => {
-          const currentSpan = getSpan(photo.span);
+          const currentColSpan = getSpan(photo.colSpan);
+          const currentRowSpan = getSpan(photo.rowSpan || 1);
           return (
             <div
               key={photo.id}
               className={`relative rounded-lg group animate-fade-in ${getColSpanClass(
-                currentSpan
-              )}`}
+                currentColSpan
+              )} ${getRowSpanClass(currentRowSpan)}`}
               style={{
                 animationDelay: `${index * 150}ms`,
                 animationFillMode: "both",

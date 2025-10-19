@@ -81,8 +81,6 @@ export default function EventDetails() {
         }`}
       >
         <PhotoCollage />
-
-        {/* Bottom scroll indicator */}
         {isAtBottom && (
           <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
             <div className="bg-violet-600/90 w-3xs text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
