@@ -66,9 +66,9 @@ export default function AboutClarissa() {
   };
 
   return (
-    <div className="relative z-5 min-h-[400dvh] flex bg-black overflow-hidden  p-4  md:p-10  ">
+    <div className="relative z-5 min-h-[400dvh] flex bg-black overflow-hidden  p-2  md:p-10  ">
       <ForestAnimation />
-      <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
+      <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
         {ChildhoodPhotos.map((photo, index) => {
           const currentColSpan = getSpan(photo.colSpan);
           const currentRowSpan = getSpan(photo.rowSpan || 1);
