@@ -83,7 +83,7 @@ export default function PhotoCollage() {
                   <div
                     key={photo.id}
                     className={cn(
-                      "relative rounded-lg  group animate-fade-in border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_15px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
+                      "relative rounded-lg  group animate-fade-in border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
                       currentSpan === 2 ? "col-span-2" : "col-span-1"
                     )}
                     style={{
@@ -128,7 +128,7 @@ export default function PhotoCollage() {
                   <div
                     key={photo.id}
                     className={cn(
-                      "relative rounded-lg   transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_15px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
+                      "relative rounded-lg   transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
                       currentSpan === 2 ? "col-span-2" : "col-span-1",
                       isVisible
                         ? "opacity-100 translate-x-0"
@@ -172,7 +172,7 @@ export default function PhotoCollage() {
                   <div
                     key={photo.id}
                     className={cn(
-                      "relative rounded-lg  transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_15px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
+                      "relative rounded-lg  transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
                       currentSpan === 2 ? "col-span-2" : "col-span-1",
                       isVisible
                         ? "opacity-100 translate-x-0 rotate-0"

@@ -281,14 +281,14 @@ export default function EventDetails() {
             }`}
           >
             <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]   transition-all duration-300 ">
-              <h3 className="text-lg font-medium text-violet-700 drop-shadow">
-                Treasures 💎
+              <h3 className=" euphoria-script-regular  text-[30px] md:text-[50px] text-center font-medium text-violet-700 drop-shadow">
+                Treasures
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
                 The 18 Treasures represent precious gifts of love, wisdom, and
                 guidance, each one a heartfelt token from family and friends who
                 have shaped the debutante's life and continue to light her path
-                ahead. 💖
+                ahead.
               </p>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
                 <div>
@@ -314,14 +314,14 @@ export default function EventDetails() {
               </ul>
             </Card>
             <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] transition-all duration-300  ">
-              <h3 className="text-lg font-medium text-violet-700 drop-shadow">
-                Yellow Bills 💛
+              <h3 className=" euphoria-script-regular text-center text-[30px] md:text-[50px] font-medium text-violet-700 drop-shadow">
+                Yellow Bills
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
                 The 18 Bills symbolize the debutante's journey toward
                 independence and abundance, each bill a heartfelt wish for
                 prosperity, success, and the beautiful future she's destined to
-                create. ✨
+                create.
               </p>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
                 <div>
@@ -352,6 +352,7 @@ export default function EventDetails() {
               <Link
                 to={`/authorized/${token}/about-clarissa`}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="euphoria-script-regular text-[20px] md:text-[30px]"
               >
                 Childhood Memories
               </Link>
