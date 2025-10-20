@@ -2,7 +2,7 @@ export const ChildhoodPhotos = [
   {
     id: 1,
     src: "/clarissa/pic1.jpg",
-    colSpan: { default: 2, md: 2, lg: 1 },
+    colSpan: { default: 2, md: 2, lg: 2 },
     rowSpan: { default: 1, md: 2, lg: 1 },
   },
   {
@@ -14,7 +14,7 @@ export const ChildhoodPhotos = [
   {
     id: 3,
     src: "/clarissa/pic3.jpg",
-    colSpan: { default: 1, md: 1, lg: 1 },
+    colSpan: { default: 1, md: 1, lg: 2 },
     rowSpan: { default: 1, md: 1, lg: 1 },
   },
   {
@@ -26,7 +26,7 @@ export const ChildhoodPhotos = [
   {
     id: 5,
     src: "/clarissa/pic5.jpg",
-    colSpan: { default: 1, md: 2, lg: 1 },
+    colSpan: { default: 1, md: 2, lg: 2 },
     rowSpan: { default: 1, md: 2, lg: 1 },
   },
   {
@@ -51,7 +51,7 @@ export const ChildhoodPhotos = [
     id: 9,
     src: "/clarissa/pic9.jpg",
     colSpan: { default: 1, md: 2, lg: 1 },
-    rowSpan: { default: 1, md: 2, lg: 1 },
+    rowSpan: { default: 1, md: 2, lg: 2 },
   },
   {
     id: 10,
@@ -62,7 +62,7 @@ export const ChildhoodPhotos = [
   {
     id: 11,
     src: "/clarissa/pic11.jpg",
-    colSpan: { default: 1, md: 2, lg: 1 },
+    colSpan: { default: 1, md: 2, lg: 2 },
     rowSpan: { default: 1, md: 2, lg: 1 },
   },
   {
@@ -74,7 +74,7 @@ export const ChildhoodPhotos = [
   {
     id: 13,
     src: "/clarissa/pic13.jpg",
-    colSpan: { default: 1, md: 2, lg: 1 },
+    colSpan: { default: 1, md: 2, lg: 2 },
     rowSpan: { default: 2, md: 2, lg: 1 },
   },
   {
@@ -86,14 +86,14 @@ export const ChildhoodPhotos = [
   {
     id: 15,
     src: "/clarissa/pic15.jpg",
-    colSpan: { default: 2, md: 2, lg: 1 },
+    colSpan: { default: 2, md: 2, lg: 2 },
     rowSpan: { default: 1, md: 2, lg: 1 },
   },
   {
     id: 16,
     src: "/clarissa/pic16.jpg",
     colSpan: { default: 1, md: 2, lg: 1 },
-    rowSpan: { default: 2, md: 2, lg: 1 },
+    rowSpan: { default: 2, md: 2, lg: 2 },
   },
   {
     id: 17,
@@ -122,7 +122,7 @@ export const ChildhoodPhotos = [
   {
     id: 21,
     src: "/clarissa/pic21.jpg",
-    colSpan: { default: 1, md: 2, lg: 1 },
+    colSpan: { default: 1, md: 2, lg: 2 },
     rowSpan: { default: 2, md: 2, lg: 1 },
   },
   {
@@ -134,7 +134,7 @@ export const ChildhoodPhotos = [
   {
     id: 23,
     src: "/clarissa/pic23.jpg",
-    colSpan: { default: 2, md: 2, lg: 1 },
+    colSpan: { default: 2, md: 2, lg: 2 },
     rowSpan: { default: 1, md: 2, lg: 1 },
   },
   {
@@ -152,7 +152,7 @@ export const ChildhoodPhotos = [
   {
     id: 26,
     src: "/clarissa/pic26.jpg",
-    colSpan: { default: 1, md: 2, lg: 1 },
+    colSpan: { default: 1, md: 2, lg: 2 },
     rowSpan: { default: 2, md: 2, lg: 1 },
   },
   {
@@ -164,7 +164,7 @@ export const ChildhoodPhotos = [
   {
     id: 28,
     src: "/clarissa/pic28.jpg",
-    colSpan: { default: 1, md: 2, lg: 1 },
+    colSpan: { default: 1, md: 2, lg: 2 },
     rowSpan: { default: 2, md: 2, lg: 1 },
   },
   {
@@ -182,7 +182,7 @@ export const ChildhoodPhotos = [
   {
     id: 31,
     src: "/clarissa/pic31.jpg",
-    colSpan: { default: 1, md: 2, lg: 1 },
+    colSpan: { default: 1, md: 2, lg: 2 },
     rowSpan: { default: 1, md: 2, lg: 1 },
   },
   {

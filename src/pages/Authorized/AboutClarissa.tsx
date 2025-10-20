@@ -66,16 +66,21 @@ export default function AboutClarissa() {
   };
 
   return (
-    <div className="relative z-5 min-h-[400dvh] flex bg-black overflow-hidden  p-2  md:p-10  ">
+    <div className="relative z-5  min-h-full   bg-black overflow-hidden  p-4  md:p-10">
       <ForestAnimation />
-      <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
+
+      <h1 className="text-center euphoria-script-regular font-bold text-[55px] md:text-[140px] bg-gradient-to-r from-violet-400 via-purple-300 to-lavender-300 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
+        Childhood Memories
+      </h1>
+
+      <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
         {ChildhoodPhotos.map((photo, index) => {
           const currentColSpan = getSpan(photo.colSpan);
           const currentRowSpan = getSpan(photo.rowSpan || 1);
           return (
             <div
               key={photo.id}
-              className={`relative rounded-lg group animate-fade-in ${getColSpanClass(
+              className={`relative rounded-lg group animate-fade-in border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_15px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] ${getColSpanClass(
                 currentColSpan
               )} ${getRowSpanClass(currentRowSpan)}`}
               style={{
@@ -93,6 +98,11 @@ export default function AboutClarissa() {
             </div>
           );
         })}
+      </div>
+      <div className="mt-10 md:mt-16 text-center   gap-2  animate-fade-in-up mx-auto">
+        <h1 className="parisienne-regular bg-gradient-to-r from-violet-400 via-purple-300  to-violet-500/30 bg-clip-text text-transparent text-center  font-light text-xl md:text-5xl max-w-3xl mx-auto leading-relaxed    px-2 md:px-0">
+          "True nostalgia is an ephemeral composition of disjointed memories"
+        </h1>
       </div>
     </div>
   );

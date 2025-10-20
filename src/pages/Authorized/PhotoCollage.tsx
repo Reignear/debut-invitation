@@ -2,171 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-
-const themes = {
-  nature: [
-    {
-      id: 1,
-      url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=800",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 2,
-      url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 3,
-      url: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=600&h=900",
-      span: { default: 2, md: 1, lg: 2 },
-    },
-    {
-      id: 4,
-      url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=600",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 5,
-      url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=600&h=750",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 6,
-      url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=600&h=750",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 7,
-      url: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=450",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 8,
-      url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=850",
-      span: { default: 2, md: 2, lg: 1 },
-    },
-    {
-      id: 9,
-      url: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=600&h=550",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 10,
-      url: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=600&h=550",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-  ],
-  urban: [
-    {
-      id: 11,
-      url: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=750",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 12,
-      url: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&h=500",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 13,
-      url: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=900",
-      span: { default: 2, md: 1, lg: 2 },
-    },
-    {
-      id: 14,
-      url: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=450",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 15,
-      url: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&h=800",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 16,
-      url: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=600&h=550",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 17,
-      url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=700",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 18,
-      url: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=850",
-      span: { default: 2, md: 2, lg: 1 },
-    },
-    {
-      id: 19,
-      url: "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=600&h=600",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 20,
-      url: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=650",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-  ],
-  abstract: [
-    {
-      id: 21,
-      url: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&h=700",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 22,
-      url: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=500",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 23,
-      url: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=850",
-      span: { default: 2, md: 1, lg: 2 },
-    },
-    {
-      id: 24,
-      url: "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=600&h=450",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 25,
-      url: "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=600&h=800",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 26,
-      url: "https://images.unsplash.com/photo-1567359781514-3b964e2b04d6?w=600&h=600",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 27,
-      url: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=600&h=900",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-    {
-      id: 28,
-      url: "https://images.unsplash.com/photo-1554034483-04fda0d3507b?w=600&h=550",
-      span: { default: 2, md: 2, lg: 1 },
-    },
-    {
-      id: 29,
-      url: "https://images.unsplash.com/photo-1506792006437-256b665541e2?w=600&h=750",
-      span: { default: 1, md: 2, lg: 1 },
-    },
-    {
-      id: 30,
-      url: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&h=650",
-      span: { default: 1, md: 1, lg: 2 },
-    },
-  ],
-};
+import { themes } from "../../data/PhotoCollageData";
 
 export default function PhotoCollage() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [screenSize, setScreenSize] = useState<
-    "xs" | "sm" | "md" | "lg" | "default"
+    "xxs" | "xs" | "sm" | "md" | "lg" | "default"
   >("default");
 
   useEffect(() => {
@@ -181,6 +23,8 @@ export default function PhotoCollage() {
         setScreenSize("sm");
       } else if (width > 412) {
         setScreenSize("xs");
+      } else if (width > 361) {
+        setScreenSize("xxs");
       } else {
         setScreenSize("default");
       }
@@ -192,12 +36,24 @@ export default function PhotoCollage() {
   }, []);
 
   const getSpan = (
-    spanConfig: number | { default: number; md?: number; lg?: number }
+    spanConfig:
+      | number
+      | {
+          default: number;
+          md?: number;
+          lg?: number;
+          sm?: number;
+          xs?: number;
+          xxs?: number;
+        }
   ) => {
     if (typeof spanConfig === "number") return spanConfig;
 
     if (screenSize === "lg" && spanConfig.lg) return spanConfig.lg;
     if (screenSize === "md" && spanConfig.md) return spanConfig.md;
+    if (screenSize === "sm" && spanConfig.sm) return spanConfig.sm;
+    if (screenSize === "xs" && spanConfig.xs) return spanConfig.xs;
+    if (screenSize === "xxs" && spanConfig.xxs) return spanConfig.xxs;
     return spanConfig.default;
   };
 
@@ -217,17 +73,17 @@ export default function PhotoCollage() {
 
   return (
     <div ref={containerRef} className="min-h-[400vh] bg-black  pt-1 pb-1">
-      <section className="relative min-h-[185dvh] max-h-[190dvh] xxs:min-h-[165dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[185dvh] max-h-[200dvh] xxs:min-h-[175dvh] xxs:max-h-[185dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[220dvh] xxl:max-h-[240dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10  overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px] py-4 md:py-10">
               {themes.nature.map((photo, index) => {
                 const currentSpan = getSpan(photo.span);
                 return (
                   <div
                     key={photo.id}
                     className={cn(
-                      "relative rounded-lg  group animate-fade-in",
+                      "relative rounded-lg  group animate-fade-in border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_15px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
                       currentSpan === 2 ? "col-span-2" : "col-span-1"
                     )}
                     style={{
@@ -259,10 +115,10 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative min-h-[185dvh] max-h-[190dvh] xxs:min-h-[165dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[185dvh] max-h-[190dvh] xxs:min-h-[165dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[220dvh] xxl:max-h-[240dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]  py-4 md:py-10">
               {themes.urban.map((photo, index) => {
                 const currentSpan = getSpan(photo.span);
                 const isVisible = scrollProgress > 0.2 + index * 0.02;
@@ -272,7 +128,7 @@ export default function PhotoCollage() {
                   <div
                     key={photo.id}
                     className={cn(
-                      "relative rounded-lg   transition-all duration-1000 group",
+                      "relative rounded-lg   transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_15px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
                       currentSpan === 2 ? "col-span-2" : "col-span-1",
                       isVisible
                         ? "opacity-100 translate-x-0"
@@ -304,10 +160,10 @@ export default function PhotoCollage() {
         </div>
       </section>
 
-      <section className="relative min-h-[185dvh] max-h-[190dvh] xxs:min-h-[165dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[200dvh] xxl:max-h-[220dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
+      <section className="relative min-h-[185dvh] max-h-[190dvh] xxs:min-h-[165dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[220dvh] xxl:max-h-[240dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px]">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[260px] py-4 md:py-10">
               {themes.abstract.map((photo, index) => {
                 const isVisible = scrollProgress > 0.5 + index * 0.02;
                 const fromRight = index % 2 === 1;
@@ -316,7 +172,7 @@ export default function PhotoCollage() {
                   <div
                     key={photo.id}
                     className={cn(
-                      "relative rounded-lg  transition-all duration-1000 group",
+                      "relative rounded-lg  transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_15px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
                       currentSpan === 2 ? "col-span-2" : "col-span-1",
                       isVisible
                         ? "opacity-100 translate-x-0 rotate-0"
