@@ -4,6 +4,7 @@ import Landing from "../pages/Guest/Landing";
 import AuthorizedLayout from "@/layout/AuthorizedLayout";
 import AboutClarissa from "@/pages/Authorized/AboutClarissa";
 import Unauthorized from "@/pages/Unauthorized/Unauthorized";
+import PhotoCollage from "@/pages/Authorized/PhotoCollage";
 
 export const Route = [
   {
@@ -17,6 +18,10 @@ export const Route = [
       {
         path: "",
         element: <AboutClarissa />,
+      },
+      {
+        path: "photo-collage",
+        element: <PhotoCollage />,
       },
       {
         path: "event-details",

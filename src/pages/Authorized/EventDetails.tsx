@@ -3,131 +3,11 @@ import { Card } from "@/components/ui/card";
 import { Link, useParams } from "react-router-dom";
 import { Bills } from "../../data/Bills";
 import { Treasures } from "../../data/Treasures";
-import PhotoCollage from "./PhotoCollage";
-import { useState, useEffect, useRef } from "react";
 
 export default function EventDetails() {
   const { token } = useParams();
-  const [showCollage, setshowCollage] = useState(true);
-  const [isCollageVisible, setIsCollageVisible] = useState(false);
-  const [isEventDetailsVisible, setIsEventDetailsVisible] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const [showKeepScrolling, setShowKeepScrolling] = useState(false);
-  const [isAtBottom, setIsAtBottom] = useState(false);
-  const timerRef = useRef<number | null>(null);
-  const collageContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsCollageVisible(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!showCollage) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-
-      const timer = setTimeout(() => {
-        setIsEventDetailsVisible(true);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [showCollage]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!collageContainerRef.current) return;
-
-      const { scrollTop, scrollHeight, clientHeight } =
-        document.documentElement;
-      const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
-      const atBottom = scrollPercentage >= 0.95;
-
-      setIsAtBottom(atBottom);
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-        timerRef.current = null;
-      }
-      if (atBottom) {
-        timerRef.current = setTimeout(() => {
-          setshowCollage(false);
-        }, 2000);
-      }
-    };
-
-    if (showCollage) {
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-        if (timerRef.current) {
-          clearTimeout(timerRef.current);
-        }
-      };
-    }
-  }, [showCollage]);
-
-  useEffect(() => {
-    let scrollTimer: number | null = null;
-
-    const handleScroll = () => {
-      setIsScrolling(true);
-      if (scrollTimer) {
-        clearTimeout(scrollTimer);
-      }
-
-      scrollTimer = setTimeout(() => {
-        setIsScrolling(false);
-      }, 1000);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimer) {
-        clearTimeout(scrollTimer);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    setShowKeepScrolling(!isScrolling && !isAtBottom && showCollage);
-  }, [isScrolling, isAtBottom, showCollage]);
-
-  if (showCollage) {
-    return (
-      <div
-        ref={collageContainerRef}
-        className={`relative transition-opacity duration-1000 ease-in-out ${
-          isCollageVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <PhotoCollage />
-        {showKeepScrolling && (
-          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-            <div className="bg-violet-600/90 text-white px-6 py-2 w-3xs rounded-full text-sm backdrop-blur-sm animate-pulse text-center ">
-              Keep scrolling to continue...
-            </div>
-          </div>
-        )}
-        {isAtBottom && (
-          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-            <div className="bg-violet-600/90 w-3xs text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
-              Transitioning...
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
   return (
-    <div
-      className={`min-h-screen relative overflow-hidden transition-opacity duration-1000 ease-in-out ${
-        isEventDetailsVisible ? "opacity-100" : "opacity-0"
-      }`}
-    >
+    <div className="min-h-screen relative overflow-hidden transition-opacity duration-1000 ease-in-out ">
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -148,13 +28,7 @@ export default function EventDetails() {
 
       <div className="relative z-10 min-h-screen p-6 py-12">
         <div className="max-w-4xl mx-auto">
-          <div
-            className={`text-center mb-12 transition-all duration-1000 ease-out delay-300 ${
-              isEventDetailsVisible
-                ? "animate-fade-in translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
-          >
+          <div className="text-center mb-12 transition-all duration-1000 ease-out delay-300 ">
             <div className="inline-flex items-center justify-center w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-violet-200/40 to-lavender-200/40 backdrop-blur-sm animate-float border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] ">
               <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 rounded-full blur-lg opacity-30 animate-pulse" />
               <div className="absolute -inset-2 bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 rounded-full opacity-50 animate-pulse" />
@@ -162,18 +36,15 @@ export default function EventDetails() {
                 <img src="/images/tangled_flower.png" alt="" />
               </div>
             </div>
-            <h1 className="euphoria-script-regular text-[60px] md:text-[140px] font-semibold  text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
-              Clarissa's Debut
+            <h1 className="euphoria-script-regular text-[50px] md:text-[90px] font-semibold  text-balance bg-gradient-to-r from-violet-700 via-purple-600 to-lavender-600 bg-clip-text text-transparent animate-fade-in-up drop-shadow-lg">
+              This serves as your invitation!
             </h1>
             <div className="w-96 h-0.5 bg-gradient-to-r from-transparent via-violet-400/70 to-transparent mx-auto mt-6" />
           </div>
 
           <Card
-            className={`p-6 mb-5 md:p-12   backdrop-blur-sm bg-gradient-to-br from-violet-100/35 via-lavender-50/30 to-purple-100/35  transition-all duration-1000 ease-out delay-500 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]  ${
-              isEventDetailsVisible
-                ? "animate-fade-in-up translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
+            className="p-6 mb-5 md:p-12   backdrop-blur-sm bg-gradient-to-br from-violet-100/35 via-lavender-50/30 to-purple-100/35  transition-all duration-1000 ease-out delay-500 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]  ${
+            "
           >
             <div className="space-y-8">
               <div className="text-center space-y-6">
@@ -270,21 +141,16 @@ export default function EventDetails() {
                   </div>
                 </div>
               </div>
-              <h1 className="text-center text-violet-700/90">
+
+              <p className="text-sm text-violet-800/90 mt-1 drop-shadow text-center">
                 STRICTLY NO BRINGING OF PLUS ONE
-              </h1>
+              </p>
             </div>
           </Card>
 
-          <div
-            className={`grid md:grid-cols-2 gap-6 transition-all duration-1000 ease-out delay-700 ${
-              isEventDetailsVisible
-                ? "animate-fade-in-up translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
-          >
+          <div className="grid md:grid-cols-2 gap-6 transition-all duration-1000 ease-out delay-700 ">
             <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]   transition-all duration-300 ">
-              <h3 className=" euphoria-script-regular  text-[30px] md:text-[50px] text-center font-medium text-violet-700 drop-shadow">
+              <h3 className="font-semibold euphoria-script-regular  text-[30px] md:text-[50px] text-center  text-violet-700 drop-shadow">
                 Treasures
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
@@ -317,7 +183,7 @@ export default function EventDetails() {
               </ul>
             </Card>
             <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] transition-all duration-300  ">
-              <h3 className=" euphoria-script-regular text-center text-[30px] md:text-[50px] font-medium text-violet-700 drop-shadow">
+              <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
                 Yellow Bills
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
@@ -350,17 +216,6 @@ export default function EventDetails() {
               </ul>
             </Card>
           </div>
-          {/* <Card className=" mt-5 p-5 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]   transition-all duration-300 ">
-            <div className="text-center text-base text-violet-800/90  underline underline-offset-4">
-              <Link
-                to={`/authorized/${token}/about-clarissa`}
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="euphoria-script-regular text-[20px] md:text-[30px]"
-              >
-                Childhood Memories
-              </Link>
-            </div>
-          </Card> */}
         </div>
       </div>
     </div>

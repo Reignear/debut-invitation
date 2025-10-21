@@ -3,13 +3,24 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { themes } from "../../data/PhotoCollageData";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function PhotoCollage() {
+  const navigate = useNavigate();
+  const { token } = useParams();
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [screenSize, setScreenSize] = useState<
     "xxs" | "xs" | "sm" | "md" | "lg" | "default"
   >("default");
+
+  // New state variables for scroll behavior
+  const [showCollage, setShowCollage] = useState(true);
+  const [isCollageVisible, setIsCollageVisible] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [showKeepScrolling, setShowKeepScrolling] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     const updateScreenSize = () => {
@@ -35,6 +46,103 @@ export default function PhotoCollage() {
     return () => window.removeEventListener("resize", updateScreenSize);
   }, []);
 
+  // Initial collage visibility
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsCollageVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Transition to next page
+  useEffect(() => {
+    if (!showCollage) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      const timer = setTimeout(() => {
+        navigate(`/authorized/${token}/event-details`);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [showCollage, navigate, token]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight - windowHeight;
+      const progress = Math.min(scrollTop / docHeight, 1);
+      setScrollProgress(progress);
+
+      // Bottom detection
+      const {
+        scrollTop: docScrollTop,
+        scrollHeight,
+        clientHeight,
+      } = document.documentElement;
+      const scrollPercentage = (docScrollTop + clientHeight) / scrollHeight;
+      const atBottom = scrollPercentage >= 0.95;
+
+      setIsAtBottom(atBottom);
+
+      // Clear existing timer
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+
+      // Set new timer if at bottom
+      if (atBottom) {
+        timerRef.current = window.setTimeout(() => {
+          setShowCollage(false);
+        }, 3000); // 3 seconds
+      }
+    };
+
+    if (showCollage) {
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        if (timerRef.current) {
+          clearTimeout(timerRef.current);
+        }
+      };
+    }
+  }, [showCollage]);
+
+  // Scroll detection for "keep scrolling" message
+  useEffect(() => {
+    let scrollTimer: number | null = null;
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+      if (scrollTimer) {
+        clearTimeout(scrollTimer);
+      }
+
+      scrollTimer = window.setTimeout(() => {
+        setIsScrolling(false);
+      }, 2000); // 2 seconds
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimer) {
+        clearTimeout(scrollTimer);
+      }
+    };
+  }, []);
+
+  // Show/hide keep scrolling message
+  useEffect(() => {
+    setShowKeepScrolling(!isScrolling && !isAtBottom && showCollage);
+  }, [isScrolling, isAtBottom, showCollage]);
+
   const getSpan = (
     spanConfig:
       | number
@@ -57,22 +165,14 @@ export default function PhotoCollage() {
     return spanConfig.default;
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight - windowHeight;
-      const progress = Math.min(scrollTop / docHeight, 1);
-      setScrollProgress(progress);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div ref={containerRef} className="min-h-[400vh] bg-black  pt-1 pb-1">
+    <div
+      ref={containerRef}
+      className={`min-h-[400vh] bg-black pt-1 pb-1 transition-opacity duration-1000 ease-in-out ${
+        isCollageVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      {/* Nature Section */}
       <section className="relative min-h-[185dvh] max-h-[200dvh] xxs:min-h-[175dvh] xxs:max-h-[185dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[220dvh] xxl:max-h-[240dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10  overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -115,6 +215,7 @@ export default function PhotoCollage() {
         </div>
       </section>
 
+      {/* Urban Section */}
       <section className="relative min-h-[185dvh] max-h-[190dvh] xxs:min-h-[165dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[220dvh] xxl:max-h-[240dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -160,6 +261,7 @@ export default function PhotoCollage() {
         </div>
       </section>
 
+      {/* Abstract Section */}
       <section className="relative min-h-[185dvh] max-h-[190dvh] xxs:min-h-[165dvh] xxs:max-h-[170dvh] xs:min-h-[135dvh] xs:max-h-[190dvh] sm:min-h-[150dvh] sm:max-h-[190dvh] md:min-h-[160dvh] md:max-h-[195dvh] lg:min-h-[180dvh] lg:max-h-[225dvh] xl:min-h-[185dvh] xl:max-h-[200dvh]  xxl:min-h-[220dvh] xxl:max-h-[240dvh] flex items-center justify-center  my-3 md:mb-15 md:mt-10 overflow-hidden">
         <div className="absolute inset-0 px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -203,6 +305,24 @@ export default function PhotoCollage() {
           </h2>
         </div>
       </section>
+
+      {/* Keep scrolling message */}
+      {showKeepScrolling && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
+            Keep scrolling to continue...
+          </div>
+        </div>
+      )}
+
+      {/* Transition message */}
+      {isAtBottom && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
+            Transitioning...
+          </div>
+        </div>
+      )}
     </div>
   );
 }

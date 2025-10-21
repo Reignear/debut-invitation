@@ -54,7 +54,7 @@ export default function AboutClarissa() {
 
       const timer = setTimeout(() => {
         // Navigate to event details page
-        navigate(`/authorized/${token}/event-details`);
+        navigate(`/authorized/${token}/photo-collage`);
       }, 300);
       return () => clearTimeout(timer);
     }
