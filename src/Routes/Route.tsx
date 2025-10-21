@@ -16,15 +16,15 @@ export const Route = [
     children: [
       {
         path: "",
+        element: <AboutClarissa />,
+      },
+      {
+        path: "event-details",
         element: <EventDetails />,
       },
       {
         path: "map",
         element: <GoogleMap />,
-      },
-      {
-        path: "about-clarissa",
-        element: <AboutClarissa />,
       },
     ],
   },

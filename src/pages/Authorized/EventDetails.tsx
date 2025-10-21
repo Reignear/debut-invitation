@@ -270,6 +270,9 @@ export default function EventDetails() {
                   </div>
                 </div>
               </div>
+              <h1 className="text-center text-violet-700/90">
+                STRICTLY NO BRINGING OF PLUS ONE
+              </h1>
             </div>
           </Card>
 
@@ -347,7 +350,7 @@ export default function EventDetails() {
               </ul>
             </Card>
           </div>
-          <Card className=" mt-5 p-5 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]   transition-all duration-300 ">
+          {/* <Card className=" mt-5 p-5 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]   transition-all duration-300 ">
             <div className="text-center text-base text-violet-800/90  underline underline-offset-4">
               <Link
                 to={`/authorized/${token}/about-clarissa`}
@@ -357,7 +360,7 @@ export default function EventDetails() {
                 Childhood Memories
               </Link>
             </div>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </div>
