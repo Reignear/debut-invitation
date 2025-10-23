@@ -16,5 +16,5 @@ export const Treasures = [
   { id: 15, name: "Princess Bacongga" },
   { id: 16, name: "Angel Paja" },
   { id: 17, name: "Paolyn Suansing" },
-  { id: 18, name: "Kuwang" },
+  { id: 18, name: "Elieza Jadraque" },
 ];
