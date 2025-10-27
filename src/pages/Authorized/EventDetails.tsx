@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Link, useParams } from "react-router-dom";
 import { Bills } from "../../data/Bills";
 import { Treasures } from "../../data/Treasures";
+import { ArrowRight } from "lucide-react";
 
 export default function EventDetails() {
   const { token } = useParams();
@@ -281,6 +282,12 @@ export default function EventDetails() {
                 </div>
               </ul>
             </Card>
+          </div>
+          <div className="flex items-center justify-center mt-5 ">
+            <p className="text-sm md:hidden align-middle text-violet-800/90 drop-shadow flex items-center justify-center">
+              Scroll right
+            </p>
+            <ArrowRight className=" h-4 w-4 md:hidden text-violet-800/90" />
           </div>
         </div>
       </div>
