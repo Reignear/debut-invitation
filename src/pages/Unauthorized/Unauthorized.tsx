@@ -2,7 +2,7 @@ import { ForestAnimation } from "@/animation/forestAnimation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import BackgroundImage from "/images/samplePhoto.webp";
+import BackgroundImage from "/images/background-photo.jpg";
 
 export default function Unauthorized() {
   return (

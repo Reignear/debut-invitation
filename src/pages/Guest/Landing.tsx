@@ -63,7 +63,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/samplePhoto.webp')",
+            backgroundImage: "url('/images/background-photo.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-violet-300/40 via-lavender-200/35 to-purple-300/40" />

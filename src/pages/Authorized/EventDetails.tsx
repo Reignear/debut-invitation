@@ -12,7 +12,7 @@ export default function EventDetails() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/samplePhoto.webp')",
+            backgroundImage: "url('/images/background-photo.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-violet-300/45 via-lavender-200/40 to-purple-300/45" />
