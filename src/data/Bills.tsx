@@ -12,7 +12,7 @@ export const Bills = [
   { id: 11, name: "Sam Dela Rosa" },
   { id: 12, name: "DMartin Verano" },
   { id: 13, name: "Ronnie Vergara" },
-  { id: 14, name: "Robert Mallo" },
+  { id: 14, name: "Kristhyl Llego" },
   { id: 15, name: "Antonio Pagulong" },
   { id: 16, name: "Miraflor Aninao" },
   { id: 17, name: "Analisa Bimbo" },
