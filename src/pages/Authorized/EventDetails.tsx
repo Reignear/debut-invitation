@@ -2,7 +2,7 @@ import { ForestAnimation } from "@/animation/forestAnimation";
 import { Card } from "@/components/ui/card";
 import { Link, useParams } from "react-router-dom";
 import { Bills } from "../../data/Bills";
-import { Cupcakes } from "../../data/Cupcakes";
+import { Keepsakes } from "../../data/Keepsakes";
 import { Candles } from "../../data/Candles";
 import { Treasures } from "../../data/Treasures";
 import { ArrowRight } from "lucide-react";
@@ -228,42 +228,6 @@ export default function EventDetails() {
             </Card>
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
               <h3
-                className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow"
-                style={{ textShadow: "0 0 5px white" }}
-              >
-                Cupcakes
-              </h3>
-              <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
-                The 18 Cupcakes represent the sweet moments in the debutante’s
-                life, each cupcake a symbol of joy, celebration, and the
-                delightful memories shared with loved ones as she steps into
-                womanhood with grace and happiness.
-              </p>
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
-                <div>
-                  {Cupcakes.slice(0, 9).map((bill) => (
-                    <li
-                      key={bill.id}
-                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
-                    >
-                      {bill.id}. {bill.name}
-                    </li>
-                  ))}
-                </div>
-                <div>
-                  {Cupcakes.slice(9, 18).map((bill) => (
-                    <li
-                      key={bill.id}
-                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
-                    >
-                      {bill.id}. {bill.name}
-                    </li>
-                  ))}
-                </div>
-              </ul>
-            </Card>
-            <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
-              <h3
                 className=" font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow"
                 style={{ textShadow: "0 0 5px white" }}
               >
@@ -294,6 +258,42 @@ export default function EventDetails() {
                       className="text-violet-800/95 text-xs text-[11px] md:text-sm"
                     >
                       {bill.id}. {bill.name}
+                    </li>
+                  ))}
+                </div>
+              </ul>
+            </Card>{" "}
+            <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
+              <h3
+                className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow"
+                style={{ textShadow: "0 0 5px white" }}
+              >
+                Keepsakes
+              </h3>
+              <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
+                The 18 Keepsakes represent the sweet moments in the debutante’s
+                life, each keepsake a symbol of joy, celebration, and the
+                delightful memories shared with loved ones as she steps into
+                womanhood with grace and happiness.
+              </p>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
+                <div>
+                  {Keepsakes.slice(0, 9).map((keep) => (
+                    <li
+                      key={keep.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
+                      {keep.id}. {keep.name}
+                    </li>
+                  ))}
+                </div>
+                <div>
+                  {Keepsakes.slice(9, 18).map((keep) => (
+                    <li
+                      key={keep.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
+                      {keep.id}. {keep.name}
                     </li>
                   ))}
                 </div>
