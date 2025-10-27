@@ -174,134 +174,135 @@ export default function PhotoCollage() {
     if (screenSize === "sm" && spanConfig.sm) return spanConfig.sm;
     return spanConfig.default;
   };
-  if (showCountdown) {
-    return (
-      <div
-        className={`fixed inset-0 flex items-center justify-center bg-black z-50 transition-opacity duration-400 ${
-          countdown === 0 ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <div className=" text-violet-700 drop-shadow text-[150px]  euphoria-script-regular font-bold animate-pulse">
-          {countdown}
-        </div>
-      </div>
-    );
-  }
+
   return (
-    <div
-      ref={containerRef}
-      className={`min-h-full overflow-x-hidden bg-black pt-1 pb-1 transition-opacity duration-1000 ease-in-out ${
-        isCollageVisible ? "opacity-100" : "opacity-0"
-      }`}
-    >
-      <div className="min-h-full p-5 space-y-10">
-        <div className="-z-5 grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 gap-4 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
-          {themes.black.map((photo, index) => {
-            const currentSpan = getSpan(photo.span);
-            return (
-              <div
-                key={photo.id}
-                className={cn(
-                  "relative rounded-lg  group animate-fade-in border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
-                  currentSpan === 2 ? "col-span-2" : "col-span-1"
-                )}
-                style={{
-                  animationDelay: `${index * 150}ms`,
-                  animationFillMode: "both",
-                }}
-              >
-                <img
-                  src={photo.url || "/placeholder.svg"}
-                  alt={`Black theme ${photo.id}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 rounded-lg"
-                  loading={index < 4 ? "eager" : "lazy"}
-                />
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            );
-          })}
-        </div>
-        <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
-          {themes.red.map((photo, index) => {
-            const currentSpan = getSpan(photo.span);
-            const isVisible = scrollProgress > 0.2 + index * 0.02;
-            const fromLeft = index % 2 === 0;
+    <div className="relative min-h-full">
+      {/* Collage always rendered */}
+      <div
+        ref={containerRef}
+        className={cn(
+          "min-h-full overflow-x-hidden bg-black pt-1 pb-1 transition-opacity duration-1000 ease-in-out",
+          isCollageVisible ? "opacity-100" : "opacity-0"
+        )}
+      >
+        <div className="min-h-full p-5 space-y-10">
+          <div className="-z-5 grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 gap-4 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
+            {themes.black.map((photo, index) => {
+              const currentSpan = getSpan(photo.span);
+              return (
+                <div
+                  key={photo.id}
+                  className={cn(
+                    "relative rounded-lg  group animate-fade-in border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
+                    currentSpan === 2 ? "col-span-2" : "col-span-1"
+                  )}
+                  style={{
+                    animationDelay: `${index * 150}ms`,
+                    animationFillMode: "both",
+                  }}
+                >
+                  <img
+                    src={photo.url || "/placeholder.svg"}
+                    alt={`Black theme ${photo.id}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 rounded-lg"
+                    loading={index < 4 ? "eager" : "lazy"}
+                  />
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              );
+            })}
+          </div>
+          <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
+            {themes.red.map((photo, index) => {
+              const currentSpan = getSpan(photo.span);
+              const isVisible = scrollProgress > 0.2 + index * 0.02;
+              const fromLeft = index % 2 === 0;
 
-            return (
-              <div
-                key={photo.id}
-                className={cn(
-                  "relative rounded-lg   transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
-                  currentSpan === 2 ? "col-span-2" : "col-span-1",
-                  isVisible
-                    ? "opacity-100 translate-x-0"
-                    : fromLeft
-                    ? "opacity-0 -translate-x-20"
-                    : "opacity-0 translate-x-20"
-                )}
-                style={{
-                  transitionDelay: `${index * 100}ms`,
-                }}
-              >
-                <img
-                  src={photo.url || "/placeholder.svg"}
-                  alt={`Red theme ${photo.id}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-lg"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t rounded-lg from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            );
-          })}
-        </div>
+              return (
+                <div
+                  key={photo.id}
+                  className={cn(
+                    "relative rounded-lg   transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
+                    currentSpan === 2 ? "col-span-2" : "col-span-1",
+                    isVisible
+                      ? "opacity-100 translate-x-0"
+                      : fromLeft
+                      ? "opacity-0 -translate-x-20"
+                      : "opacity-0 translate-x-20"
+                  )}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                >
+                  <img
+                    src={photo.url || "/placeholder.svg"}
+                    alt={`Red theme ${photo.id}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-lg"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t rounded-lg from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              );
+            })}
+          </div>
 
-        <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
-          {themes.white.map((photo, index) => {
-            const isVisible = scrollProgress > 0.5 + index * 0.02;
-            const fromRight = index % 2 === 1;
-            const currentSpan = getSpan(photo.span);
-            return (
-              <div
-                key={photo.id}
-                className={cn(
-                  "relative rounded-lg  transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
-                  currentSpan === 2 ? "col-span-2" : "col-span-1",
-                  isVisible
-                    ? "opacity-100 translate-x-0 rotate-0"
-                    : fromRight
-                    ? "opacity-0 translate-x-20 rotate-6"
-                    : "opacity-0 -translate-x-20 -rotate-6"
-                )}
-                style={{
-                  transitionDelay: `${index * 100}ms`,
-                }}
-              >
-                <img
-                  src={photo.url || "/placeholder.svg"}
-                  alt={`White theme ${photo.id}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 rounded-lg"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t rounded-lg from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {showKeepScrolling && (
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-          <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
-            Keep scrolling to continue...
+          <div className="-z-5 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 w-full p-0 md:p-4 h-full auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[300px]">
+            {themes.white.map((photo, index) => {
+              const isVisible = scrollProgress > 0.5 + index * 0.02;
+              const fromRight = index % 2 === 1;
+              const currentSpan = getSpan(photo.span);
+              return (
+                <div
+                  key={photo.id}
+                  className={cn(
+                    "relative rounded-lg  transition-all duration-1000 group border-violet-300/60 shadow-[0_0_10px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] md:shadow-[0_0_20px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]",
+                    currentSpan === 2 ? "col-span-2" : "col-span-1",
+                    isVisible
+                      ? "opacity-100 translate-x-0 rotate-0"
+                      : fromRight
+                      ? "opacity-0 translate-x-20 rotate-6"
+                      : "opacity-0 -translate-x-20 -rotate-6"
+                  )}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                >
+                  <img
+                    src={photo.url || "/placeholder.svg"}
+                    alt={`White theme ${photo.id}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 rounded-lg"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t rounded-lg from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              );
+            })}
           </div>
         </div>
-      )}
 
-      {/* Transition message */}
-      {isAtBottom && (
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-          <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
-            Transitioning...
+        {showKeepScrolling && (
+          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+            <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
+              Keep scrolling to continue...
+            </div>
+          </div>
+        )}
+
+        {/* Transition message */}
+        {isAtBottom && (
+          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+            <div className="bg-violet-600/90 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm animate-pulse text-center">
+              Transitioning...
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Countdown overlay */}
+      {showCountdown && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black z-50 transition-opacity duration-400">
+          <div className="text-violet-700 drop-shadow text-[150px] euphoria-script-regular font-bold animate-pulse">
+            {countdown}
           </div>
         </div>
       )}
