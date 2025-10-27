@@ -2,6 +2,8 @@ import { ForestAnimation } from "@/animation/forestAnimation";
 import { Card } from "@/components/ui/card";
 import { Link, useParams } from "react-router-dom";
 import { Bills } from "../../data/Bills";
+import { Cupcakes } from "../../data/Cupcakes";
+import { Candles } from "../../data/Candles";
 import { Treasures } from "../../data/Treasures";
 import { ArrowRight } from "lucide-react";
 
@@ -218,17 +220,17 @@ export default function EventDetails() {
             </Card>
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
               <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
-                Yellow Bills
+                Cupcakes
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
-                The 18 Bills symbolize the debutante's journey toward
-                independence and abundance, each bill a heartfelt wish for
-                prosperity, success, and the beautiful future she's destined to
-                create.
+                The 18 Cupcakes represent the sweet moments in the debutante’s
+                life, each cupcake a symbol of joy, celebration, and the
+                delightful memories shared with loved ones as she steps into
+                womanhood with grace and happiness.
               </p>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
                 <div>
-                  {Bills.slice(0, 9).map((bill) => (
+                  {Cupcakes.slice(0, 9).map((bill) => (
                     <li
                       key={bill.id}
                       className="text-violet-800/95 text-xs text-[11px] md:text-sm"
@@ -238,7 +240,7 @@ export default function EventDetails() {
                   ))}
                 </div>
                 <div>
-                  {Bills.slice(9, 18).map((bill) => (
+                  {Cupcakes.slice(9, 18).map((bill) => (
                     <li
                       key={bill.id}
                       className="text-violet-800/95 text-xs text-[11px] md:text-sm"
@@ -251,17 +253,17 @@ export default function EventDetails() {
             </Card>
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
               <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
-                Yellow Bills
+                Candles
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
-                The 18 Bills symbolize the debutante's journey toward
-                independence and abundance, each bill a heartfelt wish for
-                prosperity, success, and the beautiful future she's destined to
-                create.
+                The 18 Candles symbolize the guiding lights in the debutante’s
+                life, each flame representing love, hope, and the heartfelt
+                wishes of family and friends who have illuminated her journey
+                toward maturity and a bright future.
               </p>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
                 <div>
-                  {Bills.slice(0, 9).map((bill) => (
+                  {Candles.slice(0, 9).map((bill) => (
                     <li
                       key={bill.id}
                       className="text-violet-800/95 text-xs text-[11px] md:text-sm"
@@ -271,7 +273,7 @@ export default function EventDetails() {
                   ))}
                 </div>
                 <div>
-                  {Bills.slice(9, 18).map((bill) => (
+                  {Candles.slice(9, 18).map((bill) => (
                     <li
                       key={bill.id}
                       className="text-violet-800/95 text-xs text-[11px] md:text-sm"
