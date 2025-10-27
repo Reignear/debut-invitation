@@ -27,7 +27,7 @@ export default function EventDetails() {
       <div className="absolute top-1/3 right-1/4 w-28 h-28 bg-purple-200/20 rounded-full blur-2xl animate-pulse delay-500" />
 
       <div className="relative z-10 min-h-screen p-6 py-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl  mx-auto">
           <div className="text-center mb-12 transition-all duration-1000 ease-out delay-300 ">
             <div className="inline-flex items-center justify-center w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-violet-200/40 to-lavender-200/40 backdrop-blur-sm animate-float border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] ">
               <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 rounded-full blur-lg opacity-30 animate-pulse" />
@@ -148,8 +148,8 @@ export default function EventDetails() {
             </div>
           </Card>
 
-          <div className="grid md:grid-cols-2 gap-6 transition-all duration-1000 ease-out delay-700 ">
-            <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]   transition-all duration-300 ">
+          <div className="flex gap-6 overflow-x-auto md:grid md:grid-cols-2 md:overflow-x-visible transition-all duration-1000 ease-out delay-700 ">
+            <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] transition-all duration-300 ">
               <h3 className="font-semibold euphoria-script-regular  text-[30px] md:text-[50px] text-center  text-violet-700 drop-shadow">
                 Treasures
               </h3>
@@ -182,7 +182,73 @@ export default function EventDetails() {
                 </div>
               </ul>
             </Card>
-            <Card className="p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] transition-all duration-300  ">
+            <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
+              <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
+                Yellow Bills
+              </h3>
+              <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
+                The 18 Bills symbolize the debutante's journey toward
+                independence and abundance, each bill a heartfelt wish for
+                prosperity, success, and the beautiful future she's destined to
+                create.
+              </p>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
+                <div>
+                  {Bills.slice(0, 9).map((bill) => (
+                    <li
+                      key={bill.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
+                      {bill.id}. {bill.name}
+                    </li>
+                  ))}
+                </div>
+                <div>
+                  {Bills.slice(9, 18).map((bill) => (
+                    <li
+                      key={bill.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
+                      {bill.id}. {bill.name}
+                    </li>
+                  ))}
+                </div>
+              </ul>
+            </Card>
+            <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
+              <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
+                Yellow Bills
+              </h3>
+              <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
+                The 18 Bills symbolize the debutante's journey toward
+                independence and abundance, each bill a heartfelt wish for
+                prosperity, success, and the beautiful future she's destined to
+                create.
+              </p>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
+                <div>
+                  {Bills.slice(0, 9).map((bill) => (
+                    <li
+                      key={bill.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
+                      {bill.id}. {bill.name}
+                    </li>
+                  ))}
+                </div>
+                <div>
+                  {Bills.slice(9, 18).map((bill) => (
+                    <li
+                      key={bill.id}
+                      className="text-violet-800/95 text-xs text-[11px] md:text-sm"
+                    >
+                      {bill.id}. {bill.name}
+                    </li>
+                  ))}
+                </div>
+              </ul>
+            </Card>
+            <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
               <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
                 Yellow Bills
               </h3>
