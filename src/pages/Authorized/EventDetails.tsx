@@ -153,7 +153,10 @@ export default function EventDetails() {
 
           <div className="flex gap-6 overflow-x-auto md:grid md:grid-cols-2 md:overflow-x-visible transition-all duration-1000 ease-out delay-700 ">
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] transition-all duration-300 ">
-              <h3 className="font-semibold euphoria-script-regular  text-[30px] md:text-[50px] text-center  text-violet-700 drop-shadow">
+              <h3
+                className="font-semibold euphoria-script-regular  text-[30px] md:text-[50px] text-center  text-violet-700 drop-shadow"
+                style={{ textShadow: "0 0 5px white" }}
+              >
                 Treasures
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
@@ -186,7 +189,10 @@ export default function EventDetails() {
               </ul>
             </Card>
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
-              <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
+              <h3
+                className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow"
+                style={{ textShadow: "0 0 5px white" }}
+              >
                 Yellow Bills
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
@@ -219,7 +225,10 @@ export default function EventDetails() {
               </ul>
             </Card>
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
-              <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
+              <h3
+                className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow"
+                style={{ textShadow: "0 0 5px white" }}
+              >
                 Cupcakes
               </h3>
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
@@ -252,9 +261,13 @@ export default function EventDetails() {
               </ul>
             </Card>
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30  transition-all duration-300  border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)]">
-              <h3 className="font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow">
+              <h3
+                className=" font-semibold euphoria-script-regular text-center text-[30px] md:text-[50px]  text-violet-700 drop-shadow"
+                style={{ textShadow: "0 0 5px white" }}
+              >
                 Candles
               </h3>
+
               <p className="text-sm text-violet-800/95 leading-relaxed drop-shadow text-justify">
                 The 18 Candles symbolize the guiding lights in the debutante’s
                 life, each flame representing love, hope, and the heartfelt
@@ -287,7 +300,7 @@ export default function EventDetails() {
           </div>
           <div className="flex items-center justify-center mt-5 ">
             <p className="text-sm md:hidden align-middle text-violet-800/90 drop-shadow flex items-center justify-center">
-              Scroll right
+              Swipe right
             </p>
             <ArrowRight className=" h-4 w-4 md:hidden text-violet-800/90" />
           </div>
