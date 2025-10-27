@@ -144,13 +144,15 @@ export default function EventDetails() {
                   </div>
                 </div>
               </div>
-
-              <p className="text-sm text-violet-800/90 mt-1 drop-shadow text-center">
+            </div>
+          </Card>
+          <div className="mb-5 bg-white/25 backdrop-blur-sm rounded-lg border-2 border-violet-300/35">
+            <div className="bg-white/25 backdrop-blur-sm rounded-lg p-4 border-2 border-violet-300/35">
+              <p className="text-center font-medium text-violet-900 drop-shadow">
                 STRICTLY NO BRINGING OF PLUS ONE
               </p>
             </div>
-          </Card>
-
+          </div>
           <div className="flex gap-6 overflow-x-auto md:grid md:grid-cols-2 md:overflow-x-visible transition-all duration-1000 ease-out delay-700 ">
             <Card className="min-w-[87vw] md:min-w-0 p-6 backdrop-blur-sm bg-gradient-to-br from-violet-100/30 via-lavender-50/25 to-purple-100/30 border-2 border-violet-300/60 shadow-[0_0_5px_rgba(139,92,246,0.4),0_0_60px_rgba(168,85,247,0.2)] transition-all duration-300 ">
               <h3
