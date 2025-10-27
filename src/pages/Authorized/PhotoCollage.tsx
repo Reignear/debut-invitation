@@ -6,6 +6,8 @@ import { themes } from "../../data/PhotoCollageData";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function PhotoCollage() {
+  const [countdown, setCountdown] = useState(5);
+  const [showCountdown, setShowCountdown] = useState(true);
   const navigate = useNavigate();
   const { token } = useParams();
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -42,13 +44,30 @@ export default function PhotoCollage() {
     return () => window.removeEventListener("resize", updateScreenSize);
   }, []);
 
-  // Initial collage visibility
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsCollageVisible(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
+    if (countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown((prev) => prev - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      // Fade out countdown, then show collage
+      const fadeTimer = setTimeout(() => {
+        setShowCountdown(false);
+        setTimeout(() => setIsCollageVisible(true), 400); // 400ms fade
+      }, 400); // 400ms fade
+      return () => clearTimeout(fadeTimer);
+    }
+  }, [countdown]);
+
+  useEffect(() => {
+    if (countdown === 0) {
+      const timer = setTimeout(() => {
+        setIsCollageVisible(true);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [countdown]);
 
   // Transition to next page
   useEffect(() => {
@@ -121,7 +140,7 @@ export default function PhotoCollage() {
 
       scrollTimer = window.setTimeout(() => {
         setIsScrolling(false);
-      }, 2000); // 2 seconds
+      }, 2000);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -134,7 +153,6 @@ export default function PhotoCollage() {
     };
   }, []);
 
-  // Show/hide keep scrolling message
   useEffect(() => {
     setShowKeepScrolling(!isScrolling && !isAtBottom && showCollage);
   }, [isScrolling, isAtBottom, showCollage]);
@@ -156,7 +174,19 @@ export default function PhotoCollage() {
     if (screenSize === "sm" && spanConfig.sm) return spanConfig.sm;
     return spanConfig.default;
   };
-
+  if (showCountdown) {
+    return (
+      <div
+        className={`fixed inset-0 flex items-center justify-center bg-black z-50 transition-opacity duration-400 ${
+          countdown === 0 ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <div className=" text-violet-700 drop-shadow text-[150px]  euphoria-script-regular font-bold animate-pulse">
+          {countdown}
+        </div>
+      </div>
+    );
+  }
   return (
     <div
       ref={containerRef}
