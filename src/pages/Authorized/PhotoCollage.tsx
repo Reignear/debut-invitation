@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { themes } from "../../data/PhotoCollageData";
 import { useNavigate, useParams } from "react-router-dom";
+import { LoaderCircle } from "lucide-react";
 
 export default function PhotoCollage() {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const navigate = useNavigate();
   const { token } = useParams();
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -180,11 +182,18 @@ export default function PhotoCollage() {
                   animationFillMode: "both",
                 }}
               >
+                {!imageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-lg z-10">
+             <LoaderCircle className="h-4 w-4 animate-spin" />
+                  </div>
+                )}
                 <img
                   src={photo.url || "/placeholder.svg"}
                   alt={`Black theme ${photo.id}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 rounded-lg"
                   loading={index < 4 ? "eager" : "lazy"}
+                  onLoad={() => setImageLoaded(true)}
+                  style={imageLoaded ? {} : { visibility: "hidden" }}
                 />
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
