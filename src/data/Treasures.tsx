@@ -10,7 +10,7 @@ export const Treasures = [
   { id: 9, name: "Ayahzel Dologmanding" },
   { id: 10, name: "Miguel Gabriel Aros" },
   { id: 11, name: "Harvey Guerro" },
-  { id: 12, name: "Nhielmar Gutib" },
+  { id: 12, name: "Aicee Perante" },
   { id: 13, name: "Kristine Lamoste" },
   { id: 14, name: "Angel Han Go" },
   { id: 15, name: "Princess Bacongga" },

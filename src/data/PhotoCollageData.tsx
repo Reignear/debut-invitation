@@ -21,21 +21,21 @@ import red9 from "/pictorial/red/pic9.jpg";
 
 export const themes = {
   black: [
-    {
-      id: 1,
-      url: black1,
-      span: { default: 1, sm: 1, md: 2, lg: 2 },
-    },
+    // {
+    //   id: 1,
+    //   url: black1,
+    //   span: { default: 1, sm: 1, md: 2, lg: 2 },
+    // },
     {
       id: 2,
       url: black2,
       span: { default: 1, sm: 2, md: 1, lg: 1 },
     },
-    {
-      id: 3,
-      url: black6,
-      span: { default: 2, sm: 2, md: 2, lg: 2 },
-    },
+    // {
+    //   id: 3,
+    //   url: black6,
+    //   span: { default: 2, sm: 2, md: 2, lg: 2 },
+    // },
     {
       id: 4,
       url: black3,
@@ -44,12 +44,12 @@ export const themes = {
     {
       id: 5,
       url: black8,
-      span: { default: 1, sm: 1, md: 1, lg: 2 },
+      span: { default: 2, sm: 2, md: 2, lg: 2 },
     },
     {
       id: 6,
       url: black10,
-      span: { default: 1, sm: 2, md: 2, lg: 1 },
+      span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
     {
       id: 7,
@@ -59,17 +59,17 @@ export const themes = {
     {
       id: 8,
       url: black7,
-      span: { default: 2, sm: 2, md: 2, lg: 2 },
+      span: { default: 2, sm: 1, md: 2, lg: 2 },
     },
     {
       id: 9,
       url: black5,
-      span: { default: 1, sm: 1, md: 2, lg: 1 },
+      span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
     {
       id: 10,
       url: black9,
-      span: { default: 1, sm: 2, md: 1, lg: 2 },
+      span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
   ],
   red: [
