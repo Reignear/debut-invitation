@@ -6,7 +6,7 @@ import { themes } from "../../data/PhotoCollageData";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function PhotoCollage() {
-  const [countdown, setCountdown] = useState(5);
+  const [countdown, setCountdown] = useState(3);
   const [showCountdown, setShowCountdown] = useState(true);
   const navigate = useNavigate();
   const { token } = useParams();
