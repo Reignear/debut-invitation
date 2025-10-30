@@ -1,19 +1,15 @@
-import black1 from "/pictorial/black/pic1.jpg";
 import black2 from "/pictorial/black/pic2.jpg";
 import black3 from "/pictorial/black/pic3.jpg";
 import black4 from "/pictorial/black/pic4.jpg";
 import black5 from "/pictorial/black/pic5.jpg";
-import black6 from "/pictorial/black/pic6.jpg";
 import black7 from "/pictorial/black/pic7.jpg";
 import black8 from "/pictorial/black/pic8.jpg";
 import black9 from "/pictorial/black/pic9.jpg";
 import black10 from "/pictorial/black/pic10.jpg";
-
 import white1 from "/pictorial/white/pic1.jpg";
 import white2 from "/pictorial/white/pic2.jpg";
 import white3 from "/pictorial/white/pic3.jpg";
 import white4 from "/pictorial/white/pic4.jpg";
-
 import red1 from "/pictorial/red/pic1.jpg";
 import red6 from "/pictorial/red/pic6.jpg";
 import red8 from "/pictorial/red/pic8.jpg";
@@ -96,7 +92,7 @@ export const themes = {
     {
       id: 15,
       url: red8,
-      span: { default: 1, sm: 1, md: 1, lg: 2},
+      span: { default: 1, sm: 1, md: 1, lg: 2 },
     },
     // {
     //   id: 16,
