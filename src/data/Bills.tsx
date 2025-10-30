@@ -2,7 +2,7 @@ export const Bills = [
   { id: 1, name: "Allan Magallanes" },
   { id: 2, name: "Dennis Garcia" },
   { id: 3, name: "Rene Marco Sulamin" },
-  { id: 4, name: "Pastor Oquias" },
+  { id: 4, name: "Oquias Junie" },
   { id: 5, name: "Rey Ann Bongabong" },
   { id: 6, name: "Honey Micabani" },
   { id: 7, name: "Renante Berador" },

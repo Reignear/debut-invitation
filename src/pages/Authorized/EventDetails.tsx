@@ -71,7 +71,7 @@ export default function EventDetails() {
                         Saturday, November 8, 2025
                       </p>
                       <p className="text-base text-violet-800/90 drop-shadow">
-                        4:00 PM - 8:00 PM
+                        5:00 PM - 8:00 PM
                       </p>
                     </div>
                     <div>
@@ -120,7 +120,7 @@ export default function EventDetails() {
                 <div className="grid md:grid-cols-3 gap-4 text-center">
                   <div>
                     <p className="text-sm text-violet-700/90 drop-shadow">
-                      4:00 PM - 5:00 PM
+                      5:00 PM - 6:00 PM
                     </p>
                     <p className="font-medium text-violet-900 drop-shadow">
                       Arrival of Friends & Visitors
