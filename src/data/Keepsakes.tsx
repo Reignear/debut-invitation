@@ -7,7 +7,7 @@ export const Keepsakes = [
   { id: 6, name: "Roselle Lascuña" },
   { id: 7, name: "Earl Anadon" },
   { id: 8, name: "Weah Dela Rosa" },
-  { id: 9, name: "Bryan Baisac" },
+  { id: 9, name: "Queenie Dela Cruz" },
   { id: 10, name: "Arvin Jugar" },
   { id: 11, name: "Liam Paña" },
   { id: 12, name: "Gian Alo" },
