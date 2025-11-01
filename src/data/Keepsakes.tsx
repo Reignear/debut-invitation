@@ -16,5 +16,5 @@ export const Keepsakes = [
   { id: 15, name: "Jan Villarino" },
   { id: 16, name: "Rhianna Yape" },
   { id: 17, name: "Sheika Manales" },
-  { id: 18, name: "Trisha Ladiao" },
+  { id: 18, name: "Jayashri Lio" },
 ];
