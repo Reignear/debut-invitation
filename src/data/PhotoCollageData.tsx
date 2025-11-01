@@ -1,11 +1,3 @@
-import black2 from "/pictorial/black/pic2.jpg";
-import black3 from "/pictorial/black/pic3.jpg";
-import black4 from "/pictorial/black/pic4.jpg";
-import black5 from "/pictorial/black/pic5.jpg";
-import black7 from "/pictorial/black/pic7.jpg";
-import black8 from "/pictorial/black/pic8.jpg";
-import black9 from "/pictorial/black/pic9.jpg";
-import black10 from "/pictorial/black/pic10.jpg";
 import white1 from "/pictorial/white/pic1.jpg";
 import white2 from "/pictorial/white/pic2.jpg";
 import white3 from "/pictorial/white/pic3.jpg";
@@ -17,54 +9,64 @@ import red9 from "/pictorial/red/pic9.jpg";
 
 export const themes = {
   black: [
-    // {
-    //   id: 1,
-    //   url: black1,
-    //   span: { default: 1, sm: 1, md: 2, lg: 2 },
-    // },
+    {
+      id: 1,
+      url: "/pictorial/black/image2.jpg",
+      span: { default: 2, sm: 1, md: 2, lg: 2 },
+    },
     {
       id: 2,
-      url: black2,
+      url: "/pictorial/black/image6.jpg",
       span: { default: 1, sm: 2, md: 1, lg: 1 },
     },
-    // {
-    //   id: 3,
-    //   url: black6,
-    //   span: { default: 2, sm: 2, md: 2, lg: 2 },
-    // },
+    {
+      id: 3,
+      url: "/pictorial/black/image3.jpg",
+      span: { default: 1, sm: 2, md: 2, lg: 2 },
+    },
     {
       id: 4,
-      url: black3,
-      span: { default: 1, sm: 1, md: 1, lg: 1 },
+      url: "/pictorial/black/image7.jpg",
+      span: { default: 2, sm: 1, md: 1, lg: 1 },
     },
     {
       id: 5,
-      url: black8,
-      span: { default: 2, sm: 2, md: 2, lg: 2 },
+      url: "/pictorial/black/image5.jpg",
+      span: { default: 1, sm: 2, md: 2, lg: 2 },
     },
     {
       id: 6,
-      url: black10,
+      url: "/pictorial/black/image1.jpg",
       span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
     {
       id: 7,
-      url: black4,
-      span: { default: 1, sm: 1, md: 1, lg: 1 },
+      url: "/pictorial/black/image11.jpg",
+      span: { default: 2, sm: 1, md: 1, lg: 1 },
     },
     {
       id: 8,
-      url: black7,
-      span: { default: 2, sm: 1, md: 2, lg: 2 },
+      url: "/pictorial/black/image8.jpg",
+      span: { default: 1, sm: 1, md: 2, lg: 2 },
     },
     {
       id: 9,
-      url: black5,
+      url: "/pictorial/black/image10.jpg",
       span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
     {
       id: 10,
-      url: black9,
+      url: "/pictorial/black/image9.jpg",
+      span: { default: 2, sm: 1, md: 1, lg: 1 },
+    },
+    {
+      id: 11,
+      url: "/pictorial/black/image4.jpg",
+      span: { default: 1, sm: 1, md: 1, lg: 1 },
+    },
+    {
+      id: 12,
+      url: "/pictorial/black/image12.jpg",
       span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
   ],
