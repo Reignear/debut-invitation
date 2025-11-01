@@ -2,10 +2,6 @@ import white1 from "/pictorial/white/pic1.jpg";
 import white2 from "/pictorial/white/pic2.jpg";
 import white3 from "/pictorial/white/pic3.jpg";
 import white4 from "/pictorial/white/pic4.jpg";
-import red1 from "/pictorial/red/pic1.jpg";
-import red6 from "/pictorial/red/pic6.jpg";
-import red8 from "/pictorial/red/pic8.jpg";
-import red9 from "/pictorial/red/pic9.jpg";
 
 export const themes = {
   black: [
@@ -73,54 +69,54 @@ export const themes = {
   red: [
     {
       id: 11,
-      url: red1,
+      url: "/pictorial/red/image1.jpg",
+      span: { default: 2, sm: 1, md: 1, lg: 1 },
+    },
+    {
+      id: 12,
+      url: "/pictorial/red/image2.jpg",
       span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
-    // {
-    //   id: 12,
-    //   url: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=450",
-    //   span: { default: 1, sm: 1, md: 1, lg: 1 },
-    // },
     {
       id: 13,
-      url: red6,
+      url: "/pictorial/red/image3.jpg",
       span: { default: 1, sm: 1, md: 2, lg: 1 },
     },
-    // {
-    //   id: 14,
-    //   url: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=450",
-    //   span: { default: 1, sm: 1, md: 2, lg: 1 },
-    // },
+    {
+      id: 14,
+      url: "/pictorial/red/image7.jpg",
+      span: { default: 2, sm: 1, md: 2, lg: 1 },
+    },
     {
       id: 15,
-      url: red8,
+      url: "/pictorial/red/image9.jpg",
       span: { default: 1, sm: 1, md: 1, lg: 2 },
     },
-    // {
-    //   id: 16,
-    //   url: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=600&h=550",
-    //   span: { default: 1, sm: 1, md: 1, lg: 2 },
-    // },
-    // {
-    //   id: 17,
-    //   url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=700",
-    //   span: { default: 1, sm: 1, md: 1, lg: 2 },
-    // },
+    {
+      id: 16,
+      url: "/pictorial/red/image6.jpg",
+      span: { default: 1, sm: 1, md: 1, lg: 2 },
+    },
+    {
+      id: 17,
+      url: "/pictorial/red/image4.jpg",
+      span: { default: 2, sm: 1, md: 1, lg: 2 },
+    },
     {
       id: 18,
-      url: red9,
+      url: "/pictorial/red/image8.jpg",
       span: { default: 1, sm: 1, md: 1, lg: 1 },
     },
-    // {
-    //   id: 19,
-    //   url: "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=600&h=600",
-    //   span: { default: 1, sm: 1, md: 2, lg: 1 },
-    // },
-    // {
-    //   id: 20,
-    //   url: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=650",
-    //   span: { default: 1, sm: 1, md: 1, lg: 2 },
-    // },
+    {
+      id: 19,
+      url: "/pictorial/red/image5.jpg",
+      span: { default: 1, sm: 1, md: 2, lg: 1 },
+    },
+    {
+      id: 20,
+      url: "/pictorial/red/image10.jpg",
+      span: { default: 2, sm: 1, md: 1, lg: 2 },
+    },
   ],
   white: [
     {
